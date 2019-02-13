@@ -1,0 +1,42 @@
+# Golang CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-go/ for more details
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/golang:1.10
+
+    working_directory: /go/src/github.com/spoke-d/thermionic
+    steps:
+      - checkout
+
+      - run: sudo apt update
+      - run: sudo apt install curl gettext jq libsqlite3-dev sqlite3 autoconf libacl1-dev libcap-dev libtool libuv1-dev make pkg-config tcl xz-utils
+      
+      - restore_cache:
+          keys:
+            - deps-{{ arch }}-{{ checksum "glide.lock" }}
+      - run: make setup
+      - save_cache:
+          key: deps-{{ arch }}-{{ checksum "glide.lock" }}
+          paths:
+            - vendor
+
+      - restore_cache:
+          keys:
+            - deps-{{ arch }}-{{ checksum "Makefile" }}
+      - run: make deps
+      - save_cache:
+          key: deps-{{ arch }}-{{ checksum "Makefile" }}
+          paths:
+            - /go/deps
+
+      - run:
+          name: Setup Environment Variables
+          command: |
+            echo 'export CGO_CFLAGS="${CGO_CFLAGS} -I${GOPATH}/deps/sqlite/ -I${GOPATH}/deps/dqlite/include/"' >> $BASH_ENV
+            echo 'export CGO_LDFLAGS="${CGO_LDFLAGS} -L${GOPATH}/deps/sqlite/.libs/ -L${GOPATH}/deps/dqlite/.libs/"' >> $BASH_ENV
+            echo 'export LD_LIBRARY_PATH="${GOPATH}/deps/sqlite/.libs/:${GOPATH}/deps/dqlite/.libs/:${LD_LIBRARY_PATH}"' >> $BASH_ENV
+
+      - run: go test -v ./...
