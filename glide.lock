@@ -1,5 +1,5 @@
-hash: 08e6762361aa16cce85264a0fa0ba32c7f8208099c5f61abc5acead6605c089f
-updated: 2019-02-13T19:07:48.795222929Z
+hash: 62fc91afe79018ee1df84fde572aba8a3a6935b191f38581e11350a4832fe73b
+updated: 2019-03-18T12:07:57.482721618Z
 imports:
 - name: github.com/armon/circbuf
   version: bbbad097214e2918d8543d5201d12bfd7bca254d
@@ -12,7 +12,7 @@ imports:
 - name: github.com/boltdb/bolt
   version: fd01fc79c553a8e99d512a07e8e0c63d4a3ccfc5
 - name: github.com/CanonicalLtd/go-dqlite
-  version: e0629d673b21d3355f33ad8d31c54d5e94c1e2ab
+  version: aa4ab8dc4fdd7c50a50e0addb396d41d1d847796
   subpackages:
   - internal/bindings
   - internal/client

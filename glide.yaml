@@ -5,6 +5,7 @@ import:
   - package: github.com/SimonRichardson/resilience
   - package: github.com/SimonRichardson/flagset
   - package: github.com/CanonicalLtd/go-dqlite
+    version: aa4ab8dc4fdd7c50a50e0addb396d41d1d847796
   - package: github.com/CanonicalLtd/raft-http
   - package: github.com/CanonicalLtd/raft-membership
   - package: github.com/CanonicalLtd/raft-test
