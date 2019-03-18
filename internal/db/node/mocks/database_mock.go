@@ -6,8 +6,8 @@ package mocks
 
 import (
 	driver "database/sql/driver"
-	database "github.com/spoke-d/thermionic/internal/db/database"
 	gomock "github.com/golang/mock/gomock"
+	database "github.com/spoke-d/thermionic/internal/db/database"
 	reflect "reflect"
 )
 

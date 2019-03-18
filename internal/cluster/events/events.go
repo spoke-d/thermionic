@@ -5,16 +5,16 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/go-kit/kit/log"
+	"github.com/go-kit/kit/log/level"
+	"github.com/gorilla/websocket"
+	"github.com/pkg/errors"
 	"github.com/spoke-d/thermionic/internal/cert"
 	"github.com/spoke-d/thermionic/internal/clock"
 	"github.com/spoke-d/thermionic/internal/db"
 	"github.com/spoke-d/thermionic/internal/task"
 	"github.com/spoke-d/thermionic/pkg/client"
 	"github.com/spoke-d/thermionic/pkg/events"
-	"github.com/go-kit/kit/log"
-	"github.com/go-kit/kit/log/level"
-	"github.com/gorilla/websocket"
-	"github.com/pkg/errors"
 )
 
 // Cluster mediates access to data stored in the cluster dqlite database.

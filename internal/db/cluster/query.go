@@ -1,9 +1,9 @@
 package cluster
 
 import (
+	"github.com/pkg/errors"
 	"github.com/spoke-d/thermionic/internal/db/database"
 	"github.com/spoke-d/thermionic/internal/db/query"
-	"github.com/pkg/errors"
 )
 
 // StmtUpdateNodeVersion defines the SQL template for updating a node version

@@ -7,6 +7,9 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/go-kit/kit/log"
+	"github.com/go-kit/kit/log/level"
+	"github.com/pkg/errors"
 	"github.com/spoke-d/thermionic/internal/cert"
 	"github.com/spoke-d/thermionic/internal/clock"
 	"github.com/spoke-d/thermionic/internal/cluster/membership"
@@ -19,9 +22,6 @@ import (
 	"github.com/spoke-d/thermionic/pkg/api"
 	ops "github.com/spoke-d/thermionic/pkg/api/daemon/operations"
 	"github.com/spoke-d/thermionic/pkg/client"
-	"github.com/go-kit/kit/log"
-	"github.com/go-kit/kit/log/level"
-	"github.com/pkg/errors"
 )
 
 // disable clustering on a node

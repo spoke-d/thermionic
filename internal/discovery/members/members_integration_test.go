@@ -7,8 +7,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/spoke-d/thermionic/internal/discovery/members"
 	"github.com/pborman/uuid"
+	"github.com/spoke-d/thermionic/internal/discovery/members"
 )
 
 func TestRealMembers_Integration(t *testing.T) {

@@ -9,9 +9,9 @@ import (
 	"strings"
 	"text/tabwriter"
 
+	"github.com/pkg/errors"
 	"github.com/spoke-d/thermionic/internal/clui/install"
 	"github.com/spoke-d/thermionic/internal/clui/radix"
-	"github.com/pkg/errors"
 )
 
 // Errno represents a error constants that can be reutrned from the CLI

@@ -15,15 +15,15 @@ import (
 	dqlite "github.com/CanonicalLtd/go-dqlite"
 	rafthttp "github.com/CanonicalLtd/raft-http"
 	raftmembership "github.com/CanonicalLtd/raft-membership"
+	"github.com/go-kit/kit/log"
+	"github.com/go-kit/kit/log/level"
+	"github.com/hashicorp/raft"
+	"github.com/pkg/errors"
 	"github.com/spoke-d/thermionic/internal/cert"
 	"github.com/spoke-d/thermionic/internal/config"
 	"github.com/spoke-d/thermionic/internal/db"
 	"github.com/spoke-d/thermionic/internal/fsys"
 	"github.com/spoke-d/thermionic/internal/node"
-	"github.com/go-kit/kit/log"
-	"github.com/go-kit/kit/log/level"
-	"github.com/hashicorp/raft"
-	"github.com/pkg/errors"
 )
 
 // Endpoint API path that gets routed to a rafthttp.Handler for

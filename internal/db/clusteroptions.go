@@ -1,10 +1,10 @@
 package db
 
 import (
+	"github.com/go-kit/kit/log"
 	"github.com/spoke-d/thermionic/internal/clock"
 	"github.com/spoke-d/thermionic/internal/db/database"
 	"github.com/spoke-d/thermionic/internal/fsys"
-	"github.com/go-kit/kit/log"
 )
 
 // ClusterOption to be passed to NewCluster to customize the resulting instance.

@@ -6,13 +6,13 @@ import (
 	"os"
 
 	dqlite "github.com/CanonicalLtd/go-dqlite"
+	"github.com/go-kit/kit/log"
+	sqlite3 "github.com/mattn/go-sqlite3"
+	"github.com/pkg/errors"
 	"github.com/spoke-d/thermionic/internal/db"
 	"github.com/spoke-d/thermionic/internal/etag"
 	"github.com/spoke-d/thermionic/internal/json"
 	"github.com/spoke-d/thermionic/pkg/client"
-	"github.com/go-kit/kit/log"
-	sqlite3 "github.com/mattn/go-sqlite3"
-	"github.com/pkg/errors"
 )
 
 // Response defines a return value from a http request. The response then can

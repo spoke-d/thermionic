@@ -5,6 +5,8 @@ import (
 	"net/http"
 	"os"
 
+	"github.com/go-kit/kit/log"
+	"github.com/go-kit/kit/log/level"
 	"github.com/spoke-d/thermionic/internal/cert"
 	"github.com/spoke-d/thermionic/internal/cluster"
 	clusterconfig "github.com/spoke-d/thermionic/internal/cluster/config"
@@ -15,8 +17,6 @@ import (
 	"github.com/spoke-d/thermionic/internal/net"
 	"github.com/spoke-d/thermionic/internal/node"
 	"github.com/spoke-d/thermionic/pkg/api"
-	"github.com/go-kit/kit/log"
-	"github.com/go-kit/kit/log/level"
 )
 
 // API defines a query API

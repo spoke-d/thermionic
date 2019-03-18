@@ -6,11 +6,11 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/spoke-d/thermionic/internal/cert"
 	"github.com/go-kit/kit/log"
 	"github.com/go-kit/kit/log/level"
 	"github.com/gorilla/mux"
 	"github.com/pkg/errors"
+	"github.com/spoke-d/thermionic/internal/cert"
 )
 
 // Service represents a endpoint that can perform http actions upon

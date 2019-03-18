@@ -5,8 +5,8 @@
 package mocks
 
 import (
-	db "github.com/spoke-d/thermionic/internal/db"
 	gomock "github.com/golang/mock/gomock"
+	db "github.com/spoke-d/thermionic/internal/db"
 	reflect "reflect"
 )
 

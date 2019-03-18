@@ -5,12 +5,12 @@ import (
 	"testing"
 	"time"
 
+	"github.com/golang/mock/gomock"
 	clusterconfig "github.com/spoke-d/thermionic/internal/cluster/config"
 	"github.com/spoke-d/thermionic/internal/cluster/membership"
 	"github.com/spoke-d/thermionic/internal/cluster/membership/mocks"
 	"github.com/spoke-d/thermionic/internal/config"
 	"github.com/spoke-d/thermionic/internal/db"
-	"github.com/golang/mock/gomock"
 )
 
 func TestRebalance(t *testing.T) {

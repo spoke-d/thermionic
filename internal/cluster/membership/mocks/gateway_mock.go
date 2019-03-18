@@ -7,11 +7,11 @@ package mocks
 import (
 	context "context"
 	go_dqlite "github.com/CanonicalLtd/go-dqlite"
+	gomock "github.com/golang/mock/gomock"
 	cert "github.com/spoke-d/thermionic/internal/cert"
 	membership "github.com/spoke-d/thermionic/internal/cluster/membership"
 	db "github.com/spoke-d/thermionic/internal/db"
 	cluster "github.com/spoke-d/thermionic/internal/db/cluster"
-	gomock "github.com/golang/mock/gomock"
 	reflect "reflect"
 )
 

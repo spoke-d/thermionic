@@ -7,11 +7,11 @@ import (
 	"reflect"
 	"testing"
 
+	"github.com/golang/mock/gomock"
 	"github.com/spoke-d/thermionic/internal/clui"
 	"github.com/spoke-d/thermionic/internal/clui/args"
 	"github.com/spoke-d/thermionic/internal/clui/flagset"
 	"github.com/spoke-d/thermionic/internal/clui/mocks"
-	"github.com/golang/mock/gomock"
 )
 
 func TestAutoComplete_Predict_Command(t *testing.T) {

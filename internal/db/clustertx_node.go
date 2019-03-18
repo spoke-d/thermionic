@@ -5,8 +5,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/spoke-d/thermionic/internal/version"
 	"github.com/pkg/errors"
+	"github.com/spoke-d/thermionic/internal/version"
 )
 
 // Nodes returns all nodes part of the cluster.

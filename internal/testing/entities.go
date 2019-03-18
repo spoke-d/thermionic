@@ -16,6 +16,8 @@ import (
 
 	dqlite "github.com/CanonicalLtd/go-dqlite"
 	rafttest "github.com/CanonicalLtd/raft-test"
+	"github.com/go-kit/kit/log"
+	"github.com/hashicorp/raft"
 	"github.com/spoke-d/thermionic/internal/cert"
 	libcluster "github.com/spoke-d/thermionic/internal/cluster"
 	"github.com/spoke-d/thermionic/internal/db"
@@ -26,8 +28,6 @@ import (
 	"github.com/spoke-d/thermionic/internal/node"
 	"github.com/spoke-d/thermionic/internal/state"
 	"github.com/spoke-d/thermionic/internal/sys"
-	"github.com/go-kit/kit/log"
-	"github.com/hashicorp/raft"
 )
 
 func NewTestState(t *testing.T, apiExtensions, schema int) (*state.State, func()) {

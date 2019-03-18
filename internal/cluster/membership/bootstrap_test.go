@@ -4,14 +4,14 @@ import (
 	"testing"
 	"time"
 
+	"github.com/golang/mock/gomock"
+	"github.com/pkg/errors"
 	"github.com/spoke-d/thermionic/internal/cluster/membership"
 	"github.com/spoke-d/thermionic/internal/cluster/membership/mocks"
 	"github.com/spoke-d/thermionic/internal/config"
 	"github.com/spoke-d/thermionic/internal/db"
 	"github.com/spoke-d/thermionic/internal/node"
 	libtesting "github.com/spoke-d/thermionic/internal/testing"
-	"github.com/golang/mock/gomock"
-	"github.com/pkg/errors"
 )
 
 func TestBootstrap(t *testing.T) {

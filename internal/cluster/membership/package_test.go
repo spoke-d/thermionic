@@ -11,13 +11,13 @@ import (
 
 	dqlite "github.com/CanonicalLtd/go-dqlite"
 	rafthttp "github.com/CanonicalLtd/raft-http"
+	"github.com/golang/mock/gomock"
 	"github.com/spoke-d/thermionic/internal/cert"
 	"github.com/spoke-d/thermionic/internal/cluster"
 	"github.com/spoke-d/thermionic/internal/cluster/membership"
 	"github.com/spoke-d/thermionic/internal/db"
 	querycluster "github.com/spoke-d/thermionic/internal/db/cluster"
 	"github.com/spoke-d/thermionic/internal/state"
-	"github.com/golang/mock/gomock"
 )
 
 //go:generate mockgen -package mocks -destination mocks/db_mock.go github.com/spoke-d/thermionic/internal/db/database DB,Tx,Rows

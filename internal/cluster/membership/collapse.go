@@ -6,6 +6,8 @@ import (
 	"time"
 
 	dqlite "github.com/CanonicalLtd/go-dqlite"
+	"github.com/go-kit/kit/log"
+	"github.com/pkg/errors"
 	"github.com/spoke-d/thermionic/internal/cert"
 	"github.com/spoke-d/thermionic/internal/cluster"
 	"github.com/spoke-d/thermionic/internal/config"
@@ -13,8 +15,6 @@ import (
 	querycluster "github.com/spoke-d/thermionic/internal/db/cluster"
 	"github.com/spoke-d/thermionic/internal/fsys"
 	"github.com/spoke-d/thermionic/internal/node"
-	"github.com/go-kit/kit/log"
-	"github.com/pkg/errors"
 )
 
 // CollapseOption to be passed to NewCollapse to customize the resulting

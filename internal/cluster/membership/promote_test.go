@@ -4,13 +4,13 @@ import (
 	"testing"
 	"time"
 
+	"github.com/golang/mock/gomock"
+	"github.com/hashicorp/raft"
+	"github.com/pkg/errors"
 	"github.com/spoke-d/thermionic/internal/cert"
 	"github.com/spoke-d/thermionic/internal/cluster/membership"
 	"github.com/spoke-d/thermionic/internal/cluster/membership/mocks"
 	"github.com/spoke-d/thermionic/internal/db"
-	"github.com/golang/mock/gomock"
-	"github.com/hashicorp/raft"
-	"github.com/pkg/errors"
 )
 
 func TestPromote(t *testing.T) {

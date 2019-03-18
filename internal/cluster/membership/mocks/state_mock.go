@@ -5,8 +5,8 @@
 package mocks
 
 import (
-	membership "github.com/spoke-d/thermionic/internal/cluster/membership"
 	gomock "github.com/golang/mock/gomock"
+	membership "github.com/spoke-d/thermionic/internal/cluster/membership"
 	reflect "reflect"
 )
 

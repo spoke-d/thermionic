@@ -3,10 +3,10 @@ package raft
 import (
 	"time"
 
+	"github.com/go-kit/kit/log"
 	"github.com/spoke-d/thermionic/internal/cert"
 	"github.com/spoke-d/thermionic/internal/config"
 	"github.com/spoke-d/thermionic/internal/fsys"
-	"github.com/go-kit/kit/log"
 )
 
 // Option to be passed to NewRaft to customize the resulting instance.

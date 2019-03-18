@@ -4,10 +4,10 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/spoke-d/thermionic/internal/db"
-	"github.com/spoke-d/thermionic/internal/db/mocks"
 	"github.com/golang/mock/gomock"
 	"github.com/pkg/errors"
+	"github.com/spoke-d/thermionic/internal/db"
+	"github.com/spoke-d/thermionic/internal/db/mocks"
 )
 
 func TestClusterTxOperationsUUIDs(t *testing.T) {

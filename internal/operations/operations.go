@@ -7,12 +7,12 @@ import (
 	"sync"
 	"time"
 
-	"github.com/spoke-d/thermionic/internal/db"
-	"github.com/spoke-d/thermionic/internal/db/database"
-	"github.com/spoke-d/thermionic/internal/task"
 	"github.com/go-kit/kit/log"
 	"github.com/go-kit/kit/log/level"
 	"github.com/pkg/errors"
+	"github.com/spoke-d/thermionic/internal/db"
+	"github.com/spoke-d/thermionic/internal/db/database"
+	"github.com/spoke-d/thermionic/internal/task"
 )
 
 // Cluster mediates access to data stored in the cluster dqlite database.

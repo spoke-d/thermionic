@@ -5,11 +5,11 @@ import (
 	"time"
 
 	dqlite "github.com/CanonicalLtd/go-dqlite"
+	"github.com/golang/mock/gomock"
+	"github.com/pkg/errors"
 	"github.com/spoke-d/thermionic/internal/db"
 	"github.com/spoke-d/thermionic/internal/db/database"
 	"github.com/spoke-d/thermionic/internal/db/mocks"
-	"github.com/golang/mock/gomock"
-	"github.com/pkg/errors"
 )
 
 func TestClusterOpen(t *testing.T) {

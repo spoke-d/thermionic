@@ -3,9 +3,9 @@ package discovery
 import (
 	"time"
 
-	"github.com/spoke-d/thermionic/internal/discovery/members"
 	"github.com/go-kit/kit/log"
 	"github.com/pkg/errors"
+	"github.com/spoke-d/thermionic/internal/discovery/members"
 )
 
 const (

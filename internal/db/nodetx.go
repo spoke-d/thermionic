@@ -1,8 +1,8 @@
 package db
 
 import (
-	"github.com/spoke-d/thermionic/internal/db/database"
 	"github.com/pkg/errors"
+	"github.com/spoke-d/thermionic/internal/db/database"
 )
 
 // RaftNode holds information about a single node in the dqlite raft cluster.

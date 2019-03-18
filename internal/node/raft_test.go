@@ -3,10 +3,10 @@ package node_test
 import (
 	"testing"
 
+	"github.com/golang/mock/gomock"
 	"github.com/spoke-d/thermionic/internal/db"
 	"github.com/spoke-d/thermionic/internal/node"
 	"github.com/spoke-d/thermionic/internal/node/mocks"
-	"github.com/golang/mock/gomock"
 )
 
 func TestDetermineRaftNode(t *testing.T) {

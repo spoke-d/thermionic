@@ -7,6 +7,10 @@ import (
 	"path/filepath"
 	"strconv"
 
+	"github.com/go-kit/kit/log"
+	"github.com/go-kit/kit/log/level"
+	"github.com/pborman/uuid"
+	"github.com/pkg/errors"
 	"github.com/spoke-d/thermionic/internal/actors"
 	"github.com/spoke-d/thermionic/internal/cert"
 	"github.com/spoke-d/thermionic/internal/clui"
@@ -29,10 +33,6 @@ import (
 	"github.com/spoke-d/thermionic/pkg/api/daemon/waitready"
 	"github.com/spoke-d/thermionic/pkg/daemon"
 	evts "github.com/spoke-d/thermionic/pkg/events"
-	"github.com/go-kit/kit/log"
-	"github.com/go-kit/kit/log/level"
-	"github.com/pborman/uuid"
-	"github.com/pkg/errors"
 )
 
 type daemonInitCmd struct {

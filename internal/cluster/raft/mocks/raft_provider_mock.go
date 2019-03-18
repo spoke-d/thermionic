@@ -5,9 +5,9 @@
 package mocks
 
 import (
-	raft "github.com/spoke-d/thermionic/internal/cluster/raft"
 	gomock "github.com/golang/mock/gomock"
 	raft0 "github.com/hashicorp/raft"
+	raft "github.com/spoke-d/thermionic/internal/cluster/raft"
 	reflect "reflect"
 )
 

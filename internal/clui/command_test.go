@@ -4,8 +4,8 @@ import (
 	"testing"
 	"testing/quick"
 
-	"github.com/spoke-d/thermionic/internal/clui"
 	"github.com/golang/mock/gomock"
+	"github.com/spoke-d/thermionic/internal/clui"
 )
 
 func TestRegistryAdd(t *testing.T) {

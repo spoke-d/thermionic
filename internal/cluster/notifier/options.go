@@ -3,9 +3,9 @@ package notifier
 import (
 	"net/http"
 
+	"github.com/go-kit/kit/log"
 	"github.com/spoke-d/thermionic/internal/cert"
 	"github.com/spoke-d/thermionic/internal/clock"
-	"github.com/go-kit/kit/log"
 )
 
 // Option to be passed to Connect to customize the resulting instance.

@@ -4,10 +4,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/spoke-d/thermionic/internal/clock"
-	"github.com/spoke-d/thermionic/internal/retrier"
 	sqlite3 "github.com/mattn/go-sqlite3"
 	"github.com/pkg/errors"
+	"github.com/spoke-d/thermionic/internal/clock"
+	"github.com/spoke-d/thermionic/internal/retrier"
 )
 
 // Retry wraps a function that interacts with the database, and retries it in

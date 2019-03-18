@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/spoke-d/thermionic/internal/db/database"
 	"github.com/pkg/errors"
+	"github.com/spoke-d/thermionic/internal/db/database"
 )
 
 // SelectConfig executes a query statement against a "config" table, which must

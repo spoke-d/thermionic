@@ -5,10 +5,10 @@
 package mocks
 
 import (
-	cluster "github.com/spoke-d/thermionic/internal/cluster"
-	raft "github.com/spoke-d/thermionic/internal/cluster/raft"
 	log "github.com/go-kit/kit/log"
 	gomock "github.com/golang/mock/gomock"
+	cluster "github.com/spoke-d/thermionic/internal/cluster"
+	raft "github.com/spoke-d/thermionic/internal/cluster/raft"
 	net "net"
 	reflect "reflect"
 )

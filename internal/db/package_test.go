@@ -5,9 +5,9 @@ import (
 	"reflect"
 	"sort"
 
+	"github.com/golang/mock/gomock"
 	"github.com/spoke-d/thermionic/internal/db"
 	"github.com/spoke-d/thermionic/internal/db/database"
-	"github.com/golang/mock/gomock"
 )
 
 //go:generate mockgen -package mocks -destination mocks/db_mock.go github.com/spoke-d/thermionic/internal/db/database DB,Tx,Rows

@@ -12,6 +12,10 @@ import (
 
 	dqlite "github.com/CanonicalLtd/go-dqlite"
 	raftmembership "github.com/CanonicalLtd/raft-membership"
+	"github.com/go-kit/kit/log"
+	"github.com/go-kit/kit/log/level"
+	hashiraft "github.com/hashicorp/raft"
+	"github.com/pkg/errors"
 	"github.com/spoke-d/thermionic/internal/cert"
 	"github.com/spoke-d/thermionic/internal/clock"
 	"github.com/spoke-d/thermionic/internal/cluster/heartbeat"
@@ -23,10 +27,6 @@ import (
 	"github.com/spoke-d/thermionic/internal/fsys"
 	"github.com/spoke-d/thermionic/internal/json"
 	"github.com/spoke-d/thermionic/internal/retrier"
-	"github.com/go-kit/kit/log"
-	"github.com/go-kit/kit/log/level"
-	hashiraft "github.com/hashicorp/raft"
-	"github.com/pkg/errors"
 )
 
 // Node mediates access to the data stored in the node-local SQLite database.

@@ -7,11 +7,11 @@ import (
 	"net/http"
 	"testing"
 
+	golog "github.com/go-kit/kit/log"
 	"github.com/spoke-d/thermionic/internal/cert"
 	"github.com/spoke-d/thermionic/internal/endpoints"
 	"github.com/spoke-d/thermionic/internal/json"
 	libtesting "github.com/spoke-d/thermionic/internal/testing"
-	golog "github.com/go-kit/kit/log"
 )
 
 func newEndpoints(t *testing.T, options ...endpoints.Option) (*endpoints.Endpoints, func()) {

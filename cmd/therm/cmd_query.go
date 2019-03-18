@@ -10,16 +10,16 @@ import (
 	"os"
 	"strings"
 
-	"github.com/spoke-d/thermionic/internal/clui"
-	"github.com/spoke-d/thermionic/internal/clui/flagset"
-	"github.com/spoke-d/thermionic/internal/exec"
-	"github.com/spoke-d/thermionic/pkg/api/daemon/query"
-	"github.com/spoke-d/thermionic/pkg/client"
 	"github.com/go-kit/kit/log"
 	"github.com/go-kit/kit/log/level"
 	"github.com/olekukonko/tablewriter"
 	"github.com/pborman/uuid"
 	"github.com/pkg/errors"
+	"github.com/spoke-d/thermionic/internal/clui"
+	"github.com/spoke-d/thermionic/internal/clui/flagset"
+	"github.com/spoke-d/thermionic/internal/exec"
+	"github.com/spoke-d/thermionic/pkg/api/daemon/query"
+	"github.com/spoke-d/thermionic/pkg/client"
 	yaml "gopkg.in/yaml.v2"
 )
 

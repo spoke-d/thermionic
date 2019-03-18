@@ -1,8 +1,8 @@
 package membership
 
 import (
-	"github.com/spoke-d/thermionic/internal/db"
 	"github.com/pkg/errors"
+	"github.com/spoke-d/thermionic/internal/db"
 )
 
 // PurgeOption to be passed to NewPurge to customize the resulting

@@ -5,9 +5,9 @@
 package mocks
 
 import (
+	gomock "github.com/golang/mock/gomock"
 	discovery "github.com/spoke-d/thermionic/internal/discovery"
 	members "github.com/spoke-d/thermionic/internal/discovery/members"
-	gomock "github.com/golang/mock/gomock"
 	reflect "reflect"
 )
 

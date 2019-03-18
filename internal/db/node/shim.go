@@ -4,8 +4,8 @@ import (
 	"database/sql"
 	"database/sql/driver"
 
-	"github.com/spoke-d/thermionic/internal/db/database"
 	"github.com/pkg/errors"
+	"github.com/spoke-d/thermionic/internal/db/database"
 )
 
 type databaseIO struct {

@@ -6,8 +6,8 @@ import (
 	"os/user"
 	"path/filepath"
 
-	"github.com/spoke-d/thermionic/internal/fsys"
 	"github.com/pkg/errors"
+	"github.com/spoke-d/thermionic/internal/fsys"
 )
 
 // OS is a high-level facade for accessing all operating-system

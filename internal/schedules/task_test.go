@@ -6,8 +6,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/spoke-d/thermionic/internal/schedules"
 	"github.com/pborman/uuid"
+	"github.com/spoke-d/thermionic/internal/schedules"
 )
 
 func TestTaskRender(t *testing.T) {

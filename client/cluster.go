@@ -6,12 +6,12 @@ import (
 	"fmt"
 	"sync"
 
+	"github.com/pkg/errors"
 	"github.com/spoke-d/thermionic/internal/json"
 	"github.com/spoke-d/thermionic/pkg/api/daemon/cluster"
 	"github.com/spoke-d/thermionic/pkg/api/daemon/operations"
 	"github.com/spoke-d/thermionic/pkg/client"
 	"github.com/spoke-d/thermionic/pkg/events"
-	"github.com/pkg/errors"
 )
 
 // ClusterCertInfo is used for joining a cluster

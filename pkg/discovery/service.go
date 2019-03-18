@@ -6,6 +6,10 @@ import (
 	"os/user"
 	"time"
 
+	"github.com/go-kit/kit/log"
+	"github.com/go-kit/kit/log/level"
+	"github.com/pborman/uuid"
+	"github.com/pkg/errors"
 	"github.com/spoke-d/thermionic/client"
 	"github.com/spoke-d/thermionic/internal/cert"
 	"github.com/spoke-d/thermionic/internal/clock"
@@ -17,10 +21,6 @@ import (
 	"github.com/spoke-d/thermionic/internal/retrier"
 	"github.com/spoke-d/thermionic/internal/task"
 	"github.com/spoke-d/thermionic/pkg/api"
-	"github.com/go-kit/kit/log"
-	"github.com/go-kit/kit/log/level"
-	"github.com/pborman/uuid"
-	"github.com/pkg/errors"
 )
 
 // Endpoints are in charge of bringing up and down the HTTP endpoints for

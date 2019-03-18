@@ -9,10 +9,10 @@ import (
 	"syscall"
 	"time"
 
+	"github.com/pkg/errors"
 	"github.com/spoke-d/thermionic/internal/fsys/ioext"
 	"github.com/spoke-d/thermionic/internal/fsys/lock"
 	"github.com/spoke-d/thermionic/internal/fsys/mmap"
-	"github.com/pkg/errors"
 )
 
 const mkdirAllMode = 0755

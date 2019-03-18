@@ -3,8 +3,8 @@ package query
 import (
 	"database/sql"
 
-	"github.com/spoke-d/thermionic/internal/db/database"
 	"github.com/pkg/errors"
+	"github.com/spoke-d/thermionic/internal/db/database"
 )
 
 // Transaction executes the given function within a database transaction.

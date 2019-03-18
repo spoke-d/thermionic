@@ -4,14 +4,14 @@ import (
 	"flag"
 	"fmt"
 
-	"github.com/spoke-d/thermionic/client"
-	"github.com/spoke-d/thermionic/internal/clui"
-	"github.com/spoke-d/thermionic/internal/clui/flagset"
-	"github.com/spoke-d/thermionic/internal/exec"
 	"github.com/go-kit/kit/log"
 	"github.com/go-kit/kit/log/level"
 	"github.com/pborman/uuid"
 	"github.com/pkg/errors"
+	"github.com/spoke-d/thermionic/client"
+	"github.com/spoke-d/thermionic/internal/clui"
+	"github.com/spoke-d/thermionic/internal/clui/flagset"
+	"github.com/spoke-d/thermionic/internal/exec"
 )
 
 type discoverServiceDeleteCmd struct {
@@ -121,7 +121,7 @@ func (c *discoverServiceDeleteCmd) Run() clui.ExitCode {
 	}
 
 	nodes := []client.ServiceNode{
-		client.ServiceNode{
+		{
 			ServerName: id,
 		},
 	}

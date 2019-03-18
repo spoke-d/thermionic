@@ -5,10 +5,10 @@
 package mocks
 
 import (
+	gomock "github.com/golang/mock/gomock"
 	config "github.com/spoke-d/thermionic/internal/config"
 	db "github.com/spoke-d/thermionic/internal/db"
 	node "github.com/spoke-d/thermionic/internal/node"
-	gomock "github.com/golang/mock/gomock"
 	reflect "reflect"
 )
 

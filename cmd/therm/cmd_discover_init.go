@@ -7,6 +7,10 @@ import (
 	"path/filepath"
 	"strconv"
 
+	"github.com/go-kit/kit/log"
+	"github.com/go-kit/kit/log/level"
+	"github.com/pborman/uuid"
+	"github.com/pkg/errors"
 	"github.com/spoke-d/thermionic/internal/cert"
 	"github.com/spoke-d/thermionic/internal/clui"
 	"github.com/spoke-d/thermionic/internal/clui/flagset"
@@ -20,10 +24,6 @@ import (
 	"github.com/spoke-d/thermionic/pkg/api/discovery/shutdown"
 	"github.com/spoke-d/thermionic/pkg/api/discovery/waitready"
 	"github.com/spoke-d/thermionic/pkg/discovery"
-	"github.com/go-kit/kit/log"
-	"github.com/go-kit/kit/log/level"
-	"github.com/pborman/uuid"
-	"github.com/pkg/errors"
 )
 
 type discoverInitCmd struct {

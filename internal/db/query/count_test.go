@@ -5,9 +5,9 @@ import (
 
 	"github.com/pkg/errors"
 
+	"github.com/golang/mock/gomock"
 	"github.com/spoke-d/thermionic/internal/db/query"
 	"github.com/spoke-d/thermionic/internal/db/query/mocks"
-	"github.com/golang/mock/gomock"
 )
 
 func TestCount(t *testing.T) {

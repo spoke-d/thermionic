@@ -5,8 +5,8 @@
 package mocks
 
 import (
-	task "github.com/spoke-d/thermionic/internal/task"
 	gomock "github.com/golang/mock/gomock"
+	task "github.com/spoke-d/thermionic/internal/task"
 	reflect "reflect"
 	time "time"
 )

@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/go-kit/kit/log"
+	"github.com/pkg/errors"
 	"github.com/spoke-d/thermionic/internal/clock"
 	"github.com/spoke-d/thermionic/internal/db"
 	"github.com/spoke-d/thermionic/internal/version"
-	"github.com/go-kit/kit/log"
-	"github.com/pkg/errors"
 )
 
 // ListOption to be passed to NewList to customize the resulting

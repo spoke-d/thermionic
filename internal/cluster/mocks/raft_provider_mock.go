@@ -5,12 +5,12 @@
 package mocks
 
 import (
+	log "github.com/go-kit/kit/log"
+	gomock "github.com/golang/mock/gomock"
 	cert "github.com/spoke-d/thermionic/internal/cert"
 	cluster "github.com/spoke-d/thermionic/internal/cluster"
 	config "github.com/spoke-d/thermionic/internal/config"
 	fsys "github.com/spoke-d/thermionic/internal/fsys"
-	log "github.com/go-kit/kit/log"
-	gomock "github.com/golang/mock/gomock"
 	reflect "reflect"
 )
 

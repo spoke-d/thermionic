@@ -10,12 +10,12 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/spoke-d/thermionic/internal/cert"
-	"github.com/spoke-d/thermionic/internal/net"
 	"github.com/go-kit/kit/log"
 	"github.com/go-kit/kit/log/level"
 	"github.com/gorilla/websocket"
 	"github.com/pkg/errors"
+	"github.com/spoke-d/thermionic/internal/cert"
+	"github.com/spoke-d/thermionic/internal/net"
 )
 
 // Client represents interactions with a API server

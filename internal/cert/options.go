@@ -1,10 +1,10 @@
 package cert
 
 import (
+	"github.com/go-kit/kit/log"
 	"github.com/spoke-d/thermionic/internal/clock"
 	"github.com/spoke-d/thermionic/internal/fsys"
 	"github.com/spoke-d/thermionic/internal/sys"
-	"github.com/go-kit/kit/log"
 )
 
 // Option to be passed to Connect to customize the resulting instance.

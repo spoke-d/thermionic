@@ -5,13 +5,13 @@ import (
 	"encoding/json"
 	"net/http"
 
+	"github.com/go-kit/kit/log"
+	"github.com/pkg/errors"
 	"github.com/spoke-d/thermionic/internal/clock"
 	"github.com/spoke-d/thermionic/internal/cluster/services"
 	"github.com/spoke-d/thermionic/internal/db"
 	"github.com/spoke-d/thermionic/internal/fsys"
 	"github.com/spoke-d/thermionic/pkg/api"
-	"github.com/go-kit/kit/log"
-	"github.com/pkg/errors"
 )
 
 // MembersAPI defines a query MembersAPI

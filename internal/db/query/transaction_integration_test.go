@@ -7,9 +7,9 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/pkg/errors"
 	"github.com/spoke-d/thermionic/internal/db/database"
 	"github.com/spoke-d/thermionic/internal/db/query"
-	"github.com/pkg/errors"
 )
 
 // Any error happening when beginning the transaction will be propagated.

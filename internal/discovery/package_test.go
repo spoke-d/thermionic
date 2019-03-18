@@ -6,10 +6,10 @@ import (
 	"reflect"
 	"strings"
 
-	"github.com/spoke-d/thermionic/internal/discovery"
-	"github.com/spoke-d/thermionic/internal/discovery/members"
 	"github.com/golang/mock/gomock"
 	"github.com/pborman/uuid"
+	"github.com/spoke-d/thermionic/internal/discovery"
+	"github.com/spoke-d/thermionic/internal/discovery/members"
 )
 
 //go:generate mockgen -package mocks -destination mocks/members_mock.go github.com/spoke-d/thermionic/internal/discovery EventBus,Members,MemberList,Member

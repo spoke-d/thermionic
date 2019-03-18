@@ -6,9 +6,9 @@ import (
 	"fmt"
 	"testing"
 
+	"github.com/pkg/errors"
 	"github.com/spoke-d/thermionic/internal/cluster/membership"
 	libtesting "github.com/spoke-d/thermionic/internal/testing"
-	"github.com/pkg/errors"
 )
 
 // If pre-conditions are not met, a descriptive error is returned.

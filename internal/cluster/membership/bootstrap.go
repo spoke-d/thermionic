@@ -3,12 +3,12 @@ package membership
 import (
 	"path/filepath"
 
+	"github.com/pkg/errors"
 	"github.com/spoke-d/thermionic/internal/cert"
 	"github.com/spoke-d/thermionic/internal/config"
 	"github.com/spoke-d/thermionic/internal/db"
 	"github.com/spoke-d/thermionic/internal/fsys"
 	"github.com/spoke-d/thermionic/internal/node"
-	"github.com/pkg/errors"
 )
 
 // BootstrapOption to be passed to NewBootstrap to customize the resulting

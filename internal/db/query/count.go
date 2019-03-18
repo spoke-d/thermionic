@@ -3,8 +3,8 @@ package query
 import (
 	"fmt"
 
-	"github.com/spoke-d/thermionic/internal/db/database"
 	"github.com/pkg/errors"
+	"github.com/spoke-d/thermionic/internal/db/database"
 )
 
 // StmtCount provides a function for creating the sql template for querying.

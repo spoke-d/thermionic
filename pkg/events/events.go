@@ -5,9 +5,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/spoke-d/thermionic/internal/clock"
 	"github.com/gorilla/websocket"
 	"github.com/pkg/errors"
+	"github.com/spoke-d/thermionic/internal/clock"
 )
 
 // Client represents a way to interact with the server API

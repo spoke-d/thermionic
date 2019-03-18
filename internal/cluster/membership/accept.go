@@ -1,8 +1,8 @@
 package membership
 
 import (
-	"github.com/spoke-d/thermionic/internal/db"
 	"github.com/pkg/errors"
+	"github.com/spoke-d/thermionic/internal/db"
 )
 
 // AcceptOption to be passed to NewAccept to customize the resulting

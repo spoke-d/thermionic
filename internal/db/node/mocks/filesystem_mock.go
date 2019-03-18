@@ -5,8 +5,8 @@
 package mocks
 
 import (
-	fsys "github.com/spoke-d/thermionic/internal/fsys"
 	gomock "github.com/golang/mock/gomock"
+	fsys "github.com/spoke-d/thermionic/internal/fsys"
 	os "os"
 	filepath "path/filepath"
 	reflect "reflect"

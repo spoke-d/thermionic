@@ -11,6 +11,10 @@ import (
 
 	dqlite "github.com/CanonicalLtd/go-dqlite"
 	raftmembership "github.com/CanonicalLtd/raft-membership"
+	"github.com/go-kit/kit/log"
+	"github.com/go-kit/kit/log/level"
+	"github.com/gorilla/mux"
+	"github.com/pkg/errors"
 	"github.com/spoke-d/thermionic/internal/cert"
 	clusterconfig "github.com/spoke-d/thermionic/internal/cluster/config"
 	"github.com/spoke-d/thermionic/internal/config"
@@ -20,10 +24,6 @@ import (
 	"github.com/spoke-d/thermionic/internal/operations"
 	"github.com/spoke-d/thermionic/internal/schedules"
 	"github.com/spoke-d/thermionic/internal/task"
-	"github.com/go-kit/kit/log"
-	"github.com/go-kit/kit/log/level"
-	"github.com/gorilla/mux"
-	"github.com/pkg/errors"
 )
 
 // Interval represents the number of seconds to wait between to heartbeat

@@ -6,10 +6,10 @@ import (
 	"net"
 	"sync"
 
-	"github.com/spoke-d/thermionic/internal/cert"
 	"github.com/go-kit/kit/log"
 	"github.com/go-kit/kit/log/level"
 	"github.com/pkg/errors"
+	"github.com/spoke-d/thermionic/internal/cert"
 )
 
 // Create a new net.Listener bound to the tcp socket of the network endpoint.

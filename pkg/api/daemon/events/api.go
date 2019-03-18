@@ -5,11 +5,11 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/spoke-d/thermionic/pkg/api"
-	"github.com/spoke-d/thermionic/pkg/events"
 	"github.com/gorilla/websocket"
 	"github.com/pborman/uuid"
 	"github.com/pkg/errors"
+	"github.com/spoke-d/thermionic/pkg/api"
+	"github.com/spoke-d/thermionic/pkg/events"
 )
 
 // Daemon can respond to requests from a shared client.
