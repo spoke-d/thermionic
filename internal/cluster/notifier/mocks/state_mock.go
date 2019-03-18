@@ -5,8 +5,8 @@
 package mocks
 
 import (
-	notifier "github.com/spoke-d/thermionic/internal/cluster/notifier"
 	gomock "github.com/golang/mock/gomock"
+	notifier "github.com/spoke-d/thermionic/internal/cluster/notifier"
 	reflect "reflect"
 )
 

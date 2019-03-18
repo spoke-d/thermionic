@@ -9,13 +9,13 @@ import (
 	"sync/atomic"
 
 	dqlite "github.com/CanonicalLtd/go-dqlite"
+	"github.com/pkg/errors"
 	"github.com/spoke-d/thermionic/internal/clock"
 	"github.com/spoke-d/thermionic/internal/db/database"
 	"github.com/spoke-d/thermionic/internal/db/query"
 	"github.com/spoke-d/thermionic/internal/db/schema"
 	"github.com/spoke-d/thermionic/internal/fsys"
 	"github.com/spoke-d/thermionic/internal/version"
-	"github.com/pkg/errors"
 )
 
 // StmtInitialNode defines a transactional statement for inserting a new node

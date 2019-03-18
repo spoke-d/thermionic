@@ -5,8 +5,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/spoke-d/thermionic/internal/config"
 	"github.com/pkg/errors"
+	"github.com/spoke-d/thermionic/internal/config"
 )
 
 // Loading a config Map initializes it with the given values.

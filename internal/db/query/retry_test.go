@@ -5,8 +5,8 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/spoke-d/thermionic/internal/db/query"
 	sqlite3 "github.com/mattn/go-sqlite3"
+	"github.com/spoke-d/thermionic/internal/db/query"
 )
 
 func TestIsRetriableError(t *testing.T) {

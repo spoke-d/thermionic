@@ -5,10 +5,10 @@
 package mocks
 
 import (
+	gomock "github.com/golang/mock/gomock"
 	cert "github.com/spoke-d/thermionic/internal/cert"
 	events "github.com/spoke-d/thermionic/internal/cluster/events"
 	events0 "github.com/spoke-d/thermionic/pkg/events"
-	gomock "github.com/golang/mock/gomock"
 	reflect "reflect"
 )
 

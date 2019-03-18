@@ -4,11 +4,11 @@ import (
 	"testing"
 	"time"
 
+	"github.com/golang/mock/gomock"
+	"github.com/pkg/errors"
 	"github.com/spoke-d/thermionic/internal/cluster/membership"
 	"github.com/spoke-d/thermionic/internal/cluster/membership/mocks"
 	"github.com/spoke-d/thermionic/internal/db"
-	"github.com/golang/mock/gomock"
-	"github.com/pkg/errors"
 )
 
 func TestPurge(t *testing.T) {

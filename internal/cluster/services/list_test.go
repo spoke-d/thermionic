@@ -5,11 +5,11 @@ import (
 	"testing"
 	"time"
 
+	"github.com/golang/mock/gomock"
+	"github.com/pborman/uuid"
 	"github.com/spoke-d/thermionic/internal/cluster/services"
 	"github.com/spoke-d/thermionic/internal/cluster/services/mocks"
 	"github.com/spoke-d/thermionic/internal/db"
-	"github.com/golang/mock/gomock"
-	"github.com/pborman/uuid"
 )
 
 func TestList(t *testing.T) {

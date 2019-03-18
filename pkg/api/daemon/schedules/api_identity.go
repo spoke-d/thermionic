@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/spoke-d/thermionic/pkg/api"
 	"github.com/go-kit/kit/log"
 	"github.com/gorilla/mux"
 	"github.com/pkg/errors"
+	"github.com/spoke-d/thermionic/pkg/api"
 )
 
 // IdentityAPI defines a schedules/{id} API

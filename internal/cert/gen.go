@@ -14,9 +14,9 @@ import (
 	"path"
 	"time"
 
+	"github.com/pkg/errors"
 	"github.com/spoke-d/thermionic/internal/clock"
 	"github.com/spoke-d/thermionic/internal/fsys"
-	"github.com/pkg/errors"
 )
 
 const defaultCertValidPeriod = 10 * 365 * 24 * time.Hour

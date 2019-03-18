@@ -4,9 +4,9 @@ import (
 	"reflect"
 	"testing"
 
+	"github.com/golang/mock/gomock"
 	"github.com/spoke-d/thermionic/internal/db/cluster"
 	"github.com/spoke-d/thermionic/internal/db/cluster/mocks"
-	"github.com/golang/mock/gomock"
 )
 
 func TestSchemaProviderSchema(t *testing.T) {

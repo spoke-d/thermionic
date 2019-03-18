@@ -5,8 +5,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/spoke-d/thermionic/internal/task"
 	"github.com/pkg/errors"
+	"github.com/spoke-d/thermionic/internal/task"
 )
 
 func TestTaskExecuteImmediately(t *testing.T) {

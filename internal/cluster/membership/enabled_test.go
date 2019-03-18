@@ -5,10 +5,10 @@ import (
 
 	"github.com/pkg/errors"
 
+	"github.com/golang/mock/gomock"
 	"github.com/spoke-d/thermionic/internal/cluster/membership"
 	"github.com/spoke-d/thermionic/internal/cluster/membership/mocks"
 	"github.com/spoke-d/thermionic/internal/db"
-	"github.com/golang/mock/gomock"
 )
 
 func TestEnabled(t *testing.T) {

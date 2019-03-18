@@ -1,9 +1,9 @@
 package node
 
 import (
+	"github.com/pkg/errors"
 	"github.com/spoke-d/thermionic/internal/config"
 	"github.com/spoke-d/thermionic/internal/db"
-	"github.com/pkg/errors"
 )
 
 // Tx models a single interaction with a node-local database.

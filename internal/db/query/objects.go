@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/spoke-d/thermionic/internal/db/database"
 	"github.com/pkg/errors"
+	"github.com/spoke-d/thermionic/internal/db/database"
 )
 
 // Dest is a function that is expected to return the objects to pass to the

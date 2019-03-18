@@ -6,6 +6,8 @@ import (
 	"fmt"
 	"net/http"
 
+	"github.com/go-kit/kit/log"
+	"github.com/pkg/errors"
 	"github.com/spoke-d/thermionic/internal/cert"
 	"github.com/spoke-d/thermionic/internal/cluster"
 	"github.com/spoke-d/thermionic/internal/db"
@@ -13,8 +15,6 @@ import (
 	"github.com/spoke-d/thermionic/internal/operations"
 	"github.com/spoke-d/thermionic/pkg/api"
 	"github.com/spoke-d/thermionic/pkg/client"
-	"github.com/go-kit/kit/log"
-	"github.com/pkg/errors"
 )
 
 // Status represents operational status

@@ -6,8 +6,8 @@ package mocks
 
 import (
 	context "context"
-	cluster "github.com/spoke-d/thermionic/internal/db/cluster"
 	gomock "github.com/golang/mock/gomock"
+	cluster "github.com/spoke-d/thermionic/internal/db/cluster"
 	reflect "reflect"
 )
 

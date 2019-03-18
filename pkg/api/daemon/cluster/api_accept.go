@@ -6,14 +6,14 @@ import (
 	"net/http"
 	"net/url"
 
+	"github.com/go-kit/kit/log"
+	"github.com/go-kit/kit/log/level"
+	"github.com/pkg/errors"
 	"github.com/spoke-d/thermionic/internal/clock"
 	"github.com/spoke-d/thermionic/internal/cluster/membership"
 	"github.com/spoke-d/thermionic/internal/fsys"
 	"github.com/spoke-d/thermionic/internal/node"
 	"github.com/spoke-d/thermionic/pkg/api"
-	"github.com/go-kit/kit/log"
-	"github.com/go-kit/kit/log/level"
-	"github.com/pkg/errors"
 )
 
 // AcceptAPI defines a query AcceptAPI

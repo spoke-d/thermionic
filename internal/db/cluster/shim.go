@@ -6,8 +6,8 @@ import (
 	"database/sql/driver"
 
 	"github.com/CanonicalLtd/go-dqlite"
-	"github.com/spoke-d/thermionic/internal/db/database"
 	"github.com/pkg/errors"
+	"github.com/spoke-d/thermionic/internal/db/database"
 )
 
 // The following will shim the database to enable better logging and metrics

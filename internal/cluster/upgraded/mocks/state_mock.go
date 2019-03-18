@@ -5,8 +5,8 @@
 package mocks
 
 import (
-	upgraded "github.com/spoke-d/thermionic/internal/cluster/upgraded"
 	gomock "github.com/golang/mock/gomock"
+	upgraded "github.com/spoke-d/thermionic/internal/cluster/upgraded"
 	reflect "reflect"
 )
 

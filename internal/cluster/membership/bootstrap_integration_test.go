@@ -8,12 +8,12 @@ import (
 	"path/filepath"
 	"testing"
 
+	"github.com/pkg/errors"
 	"github.com/spoke-d/thermionic/internal/cluster/membership"
 	"github.com/spoke-d/thermionic/internal/db"
 	"github.com/spoke-d/thermionic/internal/fsys"
 	"github.com/spoke-d/thermionic/internal/node"
 	libtesting "github.com/spoke-d/thermionic/internal/testing"
-	"github.com/pkg/errors"
 )
 
 func TestBootstrap_UnmetPreconditions(t *testing.T) {

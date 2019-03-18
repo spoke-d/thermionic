@@ -7,13 +7,13 @@ import (
 
 	rafthttp "github.com/CanonicalLtd/raft-http"
 	raftmembership "github.com/CanonicalLtd/raft-membership"
-	"github.com/spoke-d/thermionic/internal/cert"
-	clusterraft "github.com/spoke-d/thermionic/internal/cluster/raft"
-	"github.com/spoke-d/thermionic/internal/db"
 	"github.com/go-kit/kit/log"
 	"github.com/go-kit/kit/log/level"
 	"github.com/hashicorp/raft"
 	"github.com/pkg/errors"
+	"github.com/spoke-d/thermionic/internal/cert"
+	clusterraft "github.com/spoke-d/thermionic/internal/cluster/raft"
+	"github.com/spoke-d/thermionic/internal/db"
 )
 
 // LeaveOption to be passed to NewLeave to customize the resulting

@@ -1,9 +1,9 @@
 package node
 
 import (
+	"github.com/pkg/errors"
 	"github.com/spoke-d/thermionic/internal/config"
 	"github.com/spoke-d/thermionic/internal/db"
-	"github.com/pkg/errors"
 )
 
 // Node mediates access to the data stored in the node-local SQLite database.

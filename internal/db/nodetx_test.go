@@ -6,9 +6,9 @@ import (
 
 	"github.com/pkg/errors"
 
+	"github.com/golang/mock/gomock"
 	"github.com/spoke-d/thermionic/internal/db"
 	"github.com/spoke-d/thermionic/internal/db/mocks"
-	"github.com/golang/mock/gomock"
 )
 
 func TestNodeTxWithConfig(t *testing.T) {

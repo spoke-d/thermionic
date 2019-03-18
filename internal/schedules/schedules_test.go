@@ -8,11 +8,11 @@ import (
 
 	"github.com/pborman/uuid"
 
+	"github.com/go-kit/kit/log"
+	"github.com/golang/mock/gomock"
 	"github.com/spoke-d/thermionic/internal/db"
 	"github.com/spoke-d/thermionic/internal/schedules"
 	"github.com/spoke-d/thermionic/internal/schedules/mocks"
-	"github.com/go-kit/kit/log"
-	"github.com/golang/mock/gomock"
 )
 
 func TestScheduleAdd(t *testing.T) {

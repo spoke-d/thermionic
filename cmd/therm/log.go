@@ -6,9 +6,9 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/spoke-d/thermionic/internal/clui"
 	"github.com/go-kit/kit/log"
 	"github.com/go-logfmt/logfmt"
+	"github.com/spoke-d/thermionic/internal/clui"
 )
 
 type logCluiEncoder struct {

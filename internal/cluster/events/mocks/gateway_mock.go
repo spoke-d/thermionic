@@ -5,8 +5,8 @@
 package mocks
 
 import (
-	cert "github.com/spoke-d/thermionic/internal/cert"
 	gomock "github.com/golang/mock/gomock"
+	cert "github.com/spoke-d/thermionic/internal/cert"
 	reflect "reflect"
 )
 

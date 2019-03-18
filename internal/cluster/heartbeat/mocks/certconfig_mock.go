@@ -6,8 +6,8 @@ package mocks
 
 import (
 	tls "crypto/tls"
-	cert "github.com/spoke-d/thermionic/internal/cert"
 	gomock "github.com/golang/mock/gomock"
+	cert "github.com/spoke-d/thermionic/internal/cert"
 	reflect "reflect"
 )
 

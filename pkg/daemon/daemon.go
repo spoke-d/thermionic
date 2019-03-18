@@ -14,6 +14,9 @@ import (
 
 	dqlite "github.com/CanonicalLtd/go-dqlite"
 	raftmembership "github.com/CanonicalLtd/raft-membership"
+	"github.com/go-kit/kit/log"
+	"github.com/go-kit/kit/log/level"
+	"github.com/pkg/errors"
 	"github.com/spoke-d/thermionic/internal/cert"
 	"github.com/spoke-d/thermionic/internal/clock"
 	"github.com/spoke-d/thermionic/internal/cluster"
@@ -35,9 +38,6 @@ import (
 	"github.com/spoke-d/thermionic/internal/state"
 	"github.com/spoke-d/thermionic/internal/task"
 	"github.com/spoke-d/thermionic/pkg/api"
-	"github.com/go-kit/kit/log"
-	"github.com/go-kit/kit/log/level"
-	"github.com/pkg/errors"
 )
 
 // Endpoints are in charge of bringing up and down the HTTP endpoints for

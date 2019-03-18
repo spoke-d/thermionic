@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"reflect"
 
+	"github.com/golang/mock/gomock"
 	"github.com/spoke-d/thermionic/internal/db/cluster"
 	"github.com/spoke-d/thermionic/internal/db/cluster/mocks"
-	"github.com/golang/mock/gomock"
 )
 
 //go:generate mockgen -package mocks -destination mocks/database_mock.go github.com/spoke-d/thermionic/internal/db/cluster DatabaseRegistrar,DatabaseOpener,DatabaseDriver,DatabaseIO

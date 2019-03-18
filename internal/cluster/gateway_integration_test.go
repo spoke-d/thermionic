@@ -14,6 +14,9 @@ import (
 	"testing"
 
 	dqlite "github.com/CanonicalLtd/go-dqlite"
+	"github.com/go-kit/kit/log"
+	"github.com/hashicorp/raft"
+	"github.com/pkg/errors"
 	"github.com/spoke-d/thermionic/internal/cert"
 	"github.com/spoke-d/thermionic/internal/cluster"
 	"github.com/spoke-d/thermionic/internal/db"
@@ -21,9 +24,6 @@ import (
 	"github.com/spoke-d/thermionic/internal/fsys"
 	"github.com/spoke-d/thermionic/internal/node"
 	libtesting "github.com/spoke-d/thermionic/internal/testing"
-	"github.com/go-kit/kit/log"
-	"github.com/hashicorp/raft"
-	"github.com/pkg/errors"
 )
 
 // Basic creation and shutdown. By default, the gateway runs an in-memory gRPC

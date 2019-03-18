@@ -1,8 +1,8 @@
 package membership
 
 import (
-	"github.com/spoke-d/thermionic/internal/db"
 	"github.com/pkg/errors"
+	"github.com/spoke-d/thermionic/internal/db"
 )
 
 // EnabledOption to be passed to NewEnabled to customize the resulting

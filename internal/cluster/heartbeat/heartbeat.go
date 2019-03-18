@@ -9,14 +9,14 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/spoke-d/thermionic/internal/cert"
-	"github.com/spoke-d/thermionic/internal/db"
-	"github.com/spoke-d/thermionic/internal/net"
-	"github.com/spoke-d/thermionic/internal/task"
 	"github.com/go-kit/kit/log"
 	"github.com/go-kit/kit/log/level"
 	"github.com/hashicorp/raft"
 	"github.com/pkg/errors"
+	"github.com/spoke-d/thermionic/internal/cert"
+	"github.com/spoke-d/thermionic/internal/db"
+	"github.com/spoke-d/thermionic/internal/net"
+	"github.com/spoke-d/thermionic/internal/task"
 )
 
 // DatabaseEndpoint specifies the API endpoint path that gets routed to a dqlite

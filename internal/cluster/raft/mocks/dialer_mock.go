@@ -6,8 +6,8 @@ package mocks
 
 import (
 	raft_http "github.com/CanonicalLtd/raft-http"
-	cert "github.com/spoke-d/thermionic/internal/cert"
 	gomock "github.com/golang/mock/gomock"
+	cert "github.com/spoke-d/thermionic/internal/cert"
 	reflect "reflect"
 )
 

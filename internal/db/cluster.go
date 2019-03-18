@@ -6,13 +6,13 @@ import (
 	"time"
 
 	"github.com/CanonicalLtd/go-dqlite"
+	"github.com/go-kit/kit/log"
+	"github.com/go-kit/kit/log/level"
+	"github.com/pkg/errors"
 	"github.com/spoke-d/thermionic/internal/clock"
 	"github.com/spoke-d/thermionic/internal/db/cluster"
 	"github.com/spoke-d/thermionic/internal/db/database"
 	q "github.com/spoke-d/thermionic/internal/db/query"
-	"github.com/go-kit/kit/log"
-	"github.com/go-kit/kit/log/level"
-	"github.com/pkg/errors"
 )
 
 // ClusterTransactioner represents a way to run transaction on the cluster

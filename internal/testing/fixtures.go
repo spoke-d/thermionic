@@ -8,6 +8,7 @@ import (
 	"time"
 
 	dqlite "github.com/CanonicalLtd/go-dqlite"
+	"github.com/hashicorp/raft"
 	"github.com/spoke-d/thermionic/internal/cert"
 	"github.com/spoke-d/thermionic/internal/cluster"
 	"github.com/spoke-d/thermionic/internal/cluster/heartbeat"
@@ -17,7 +18,6 @@ import (
 	"github.com/spoke-d/thermionic/internal/node"
 	"github.com/spoke-d/thermionic/internal/state"
 	st "github.com/spoke-d/thermionic/internal/state"
-	"github.com/hashicorp/raft"
 )
 
 // Fixtures are a series of helper for integration tests.

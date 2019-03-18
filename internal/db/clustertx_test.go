@@ -4,9 +4,9 @@ import (
 	"reflect"
 	"testing"
 
+	"github.com/golang/mock/gomock"
 	"github.com/spoke-d/thermionic/internal/db"
 	"github.com/spoke-d/thermionic/internal/db/mocks"
-	"github.com/golang/mock/gomock"
 )
 
 func TestClusterTxWithConfig(t *testing.T) {

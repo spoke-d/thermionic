@@ -4,12 +4,12 @@ import (
 	"testing"
 	"time"
 
+	"github.com/golang/mock/gomock"
 	"github.com/spoke-d/thermionic/internal/cert"
 	"github.com/spoke-d/thermionic/internal/cluster/events"
 	"github.com/spoke-d/thermionic/internal/cluster/events/mocks"
 	"github.com/spoke-d/thermionic/internal/db"
 	pkgevents "github.com/spoke-d/thermionic/pkg/events"
-	"github.com/golang/mock/gomock"
 )
 
 func TestEventsRun(t *testing.T) {

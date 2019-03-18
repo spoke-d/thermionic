@@ -6,11 +6,11 @@ import (
 	"sync"
 	"time"
 
+	"github.com/hashicorp/raft"
+	"github.com/pkg/errors"
 	"github.com/spoke-d/thermionic/internal/db"
 	"github.com/spoke-d/thermionic/internal/lru"
 	"github.com/spoke-d/thermionic/internal/task"
-	"github.com/hashicorp/raft"
-	"github.com/pkg/errors"
 )
 
 // Interval represents the number of seconds to wait between to gc

@@ -4,13 +4,13 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/spoke-d/thermionic/internal/cert"
-	"github.com/spoke-d/thermionic/internal/db"
-	"github.com/spoke-d/thermionic/internal/fsys"
 	"github.com/go-kit/kit/log"
 	"github.com/go-kit/kit/log/level"
 	"github.com/hashicorp/raft"
 	"github.com/pkg/errors"
+	"github.com/spoke-d/thermionic/internal/cert"
+	"github.com/spoke-d/thermionic/internal/db"
+	"github.com/spoke-d/thermionic/internal/fsys"
 )
 
 // PromoteOption to be passed to NewPromote to customize the resulting

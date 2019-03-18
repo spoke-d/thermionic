@@ -3,6 +3,7 @@ package root
 import (
 	"bytes"
 
+	"github.com/pkg/errors"
 	clusterconfig "github.com/spoke-d/thermionic/internal/cluster/config"
 	"github.com/spoke-d/thermionic/internal/cluster/notifier"
 	"github.com/spoke-d/thermionic/internal/config"
@@ -11,7 +12,6 @@ import (
 	"github.com/spoke-d/thermionic/internal/node"
 	"github.com/spoke-d/thermionic/pkg/api"
 	"github.com/spoke-d/thermionic/pkg/client"
-	"github.com/pkg/errors"
 )
 
 func readConfig(

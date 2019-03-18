@@ -5,14 +5,14 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/spoke-d/thermionic/client"
-	"github.com/spoke-d/thermionic/internal/clui"
-	"github.com/spoke-d/thermionic/internal/clui/flagset"
-	"github.com/spoke-d/thermionic/internal/exec"
 	"github.com/go-kit/kit/log"
 	"github.com/go-kit/kit/log/level"
 	"github.com/pborman/uuid"
 	"github.com/pkg/errors"
+	"github.com/spoke-d/thermionic/client"
+	"github.com/spoke-d/thermionic/internal/clui"
+	"github.com/spoke-d/thermionic/internal/clui/flagset"
+	"github.com/spoke-d/thermionic/internal/exec"
 	yaml "gopkg.in/yaml.v2"
 )
 

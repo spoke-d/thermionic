@@ -7,9 +7,9 @@ import (
 	"testing"
 	"testing/quick"
 
+	"github.com/golang/mock/gomock"
 	"github.com/spoke-d/thermionic/internal/clui"
 	"github.com/spoke-d/thermionic/internal/clui/mocks"
-	"github.com/golang/mock/gomock"
 )
 
 func TestBasicUI_implements(t *testing.T) {

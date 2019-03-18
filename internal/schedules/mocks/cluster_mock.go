@@ -6,10 +6,10 @@ package mocks
 
 import (
 	go_dqlite "github.com/CanonicalLtd/go-dqlite"
+	gomock "github.com/golang/mock/gomock"
 	db "github.com/spoke-d/thermionic/internal/db"
 	cluster "github.com/spoke-d/thermionic/internal/db/cluster"
 	database "github.com/spoke-d/thermionic/internal/db/database"
-	gomock "github.com/golang/mock/gomock"
 	reflect "reflect"
 	time "time"
 )

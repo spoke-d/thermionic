@@ -8,13 +8,13 @@ import (
 	"github.com/CanonicalLtd/go-dqlite"
 
 	rafthttp "github.com/CanonicalLtd/raft-http"
+	"github.com/golang/mock/gomock"
+	hashiraft "github.com/hashicorp/raft"
 	"github.com/spoke-d/thermionic/internal/cert"
 	"github.com/spoke-d/thermionic/internal/cluster/raft"
 	"github.com/spoke-d/thermionic/internal/cluster/raft/mocks"
 	"github.com/spoke-d/thermionic/internal/db"
 	"github.com/spoke-d/thermionic/internal/node"
-	"github.com/golang/mock/gomock"
-	hashiraft "github.com/hashicorp/raft"
 )
 
 func TestRaftInitialization(t *testing.T) {

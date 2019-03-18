@@ -7,9 +7,9 @@ import (
 
 	"github.com/go-kit/kit/log/level"
 
-	clusterconfig "github.com/spoke-d/thermionic/internal/cluster/config"
 	"github.com/go-kit/kit/log"
 	"github.com/gorilla/mux"
+	clusterconfig "github.com/spoke-d/thermionic/internal/cluster/config"
 )
 
 // DaemonServiceRouter creates a wrapper of a underlying router, then allows

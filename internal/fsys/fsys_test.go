@@ -12,8 +12,8 @@ import (
 	"testing"
 	"testing/quick"
 
-	"github.com/spoke-d/thermionic/internal/fsys"
 	"github.com/pkg/errors"
+	"github.com/spoke-d/thermionic/internal/fsys"
 )
 
 func TestBuildingFileSystem(t *testing.T) {

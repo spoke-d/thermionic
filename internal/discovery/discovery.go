@@ -5,6 +5,9 @@ import (
 	"sync"
 	"time"
 
+	"github.com/go-kit/kit/log"
+	"github.com/go-kit/kit/log/level"
+	"github.com/pkg/errors"
 	"github.com/spoke-d/thermionic/client"
 	"github.com/spoke-d/thermionic/internal/clock"
 	"github.com/spoke-d/thermionic/internal/cluster"
@@ -13,9 +16,6 @@ import (
 	"github.com/spoke-d/thermionic/internal/db/database"
 	"github.com/spoke-d/thermionic/internal/node"
 	"github.com/spoke-d/thermionic/internal/task"
-	"github.com/go-kit/kit/log"
-	"github.com/go-kit/kit/log/level"
-	"github.com/pkg/errors"
 )
 
 // Gateway mediates access to the dqlite cluster using a gRPC SQL client, and

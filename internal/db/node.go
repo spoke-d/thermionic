@@ -1,11 +1,11 @@
 package db
 
 import (
+	"github.com/pkg/errors"
 	"github.com/spoke-d/thermionic/internal/db/database"
 	"github.com/spoke-d/thermionic/internal/db/node"
 	"github.com/spoke-d/thermionic/internal/db/schema"
 	"github.com/spoke-d/thermionic/internal/fsys"
-	"github.com/pkg/errors"
 )
 
 // NodeTransactioner represents a way to run transaction on the node

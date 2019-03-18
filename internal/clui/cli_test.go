@@ -11,11 +11,11 @@ import (
 	"testing"
 	"testing/quick"
 
+	"github.com/golang/mock/gomock"
 	"github.com/spoke-d/thermionic/internal/clui"
 	"github.com/spoke-d/thermionic/internal/clui/flagset"
 	"github.com/spoke-d/thermionic/internal/clui/install"
 	"github.com/spoke-d/thermionic/internal/clui/mocks"
-	"github.com/golang/mock/gomock"
 )
 
 func TestVersion(t *testing.T) {

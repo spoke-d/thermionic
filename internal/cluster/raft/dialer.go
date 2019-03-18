@@ -2,8 +2,8 @@ package raft
 
 import (
 	rafthttp "github.com/CanonicalLtd/raft-http"
-	"github.com/spoke-d/thermionic/internal/cert"
 	"github.com/pkg/errors"
+	"github.com/spoke-d/thermionic/internal/cert"
 )
 
 // NewDialer creates a rafthttp.Dial function that connects over TLS using the

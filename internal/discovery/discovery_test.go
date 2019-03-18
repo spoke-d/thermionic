@@ -4,9 +4,9 @@ import (
 	"reflect"
 	"testing"
 
+	"github.com/pborman/uuid"
 	"github.com/spoke-d/thermionic/internal/db"
 	"github.com/spoke-d/thermionic/internal/discovery"
-	"github.com/pborman/uuid"
 )
 
 func TestIntersection(t *testing.T) {
@@ -37,7 +37,7 @@ func TestIntersection(t *testing.T) {
 			services:    make([]db.ServiceNodeInfo, 0),
 			expectedAdd: make(map[string]discovery.NodeData),
 			expectedRemove: map[string]discovery.NodeData{
-				"127.0.0.1:8080": discovery.NodeData{
+				"127.0.0.1:8080": {
 					NodeInfo: db.NodeInfo{
 						ID:      int64(1),
 						Name:    "node1",
@@ -59,7 +59,7 @@ func TestIntersection(t *testing.T) {
 				},
 			},
 			expectedAdd: map[string]discovery.NodeData{
-				"127.0.0.1:9080": discovery.NodeData{
+				"127.0.0.1:9080": {
 					NodeInfo: db.NodeInfo{
 						ID:      int64(0),
 						Name:    "node1",
@@ -107,7 +107,7 @@ func TestIntersection(t *testing.T) {
 				},
 			},
 			expectedAdd: map[string]discovery.NodeData{
-				"127.0.0.4:8080": discovery.NodeData{
+				"127.0.0.4:8080": {
 					NodeInfo: db.NodeInfo{
 						ID:      int64(0),
 						Name:    "node4",
@@ -118,14 +118,14 @@ func TestIntersection(t *testing.T) {
 				},
 			},
 			expectedRemove: map[string]discovery.NodeData{
-				"127.0.0.1:8080": discovery.NodeData{
+				"127.0.0.1:8080": {
 					NodeInfo: db.NodeInfo{
 						ID:      int64(1),
 						Name:    "node1",
 						Address: "127.0.0.1:8080",
 					},
 				},
-				"127.0.0.3:8080": discovery.NodeData{
+				"127.0.0.3:8080": {
 					NodeInfo: db.NodeInfo{
 						ID:      int64(3),
 						Name:    "node3",
@@ -146,7 +146,7 @@ func TestIntersection(t *testing.T) {
 			services:    []db.ServiceNodeInfo{},
 			expectedAdd: map[string]discovery.NodeData{},
 			expectedRemove: map[string]discovery.NodeData{
-				"127.0.0.2:8080": discovery.NodeData{
+				"127.0.0.2:8080": {
 					NodeInfo: db.NodeInfo{
 						ID:      int64(2),
 						Name:    "node2",

@@ -1,10 +1,10 @@
 package schema_test
 
 import (
+	"github.com/golang/mock/gomock"
 	"github.com/spoke-d/thermionic/internal/db/database"
 	"github.com/spoke-d/thermionic/internal/db/schema"
 	"github.com/spoke-d/thermionic/internal/db/schema/mocks"
-	"github.com/golang/mock/gomock"
 )
 
 //go:generate mockgen -package mocks -destination mocks/filesystem_mock.go github.com/spoke-d/thermionic/internal/fsys FileSystem

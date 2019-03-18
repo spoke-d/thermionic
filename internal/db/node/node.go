@@ -7,11 +7,11 @@ import (
 	"sync"
 	"time"
 
+	sqlite3 "github.com/mattn/go-sqlite3"
+	"github.com/pkg/errors"
 	"github.com/spoke-d/thermionic/internal/db/database"
 	"github.com/spoke-d/thermionic/internal/db/schema"
 	"github.com/spoke-d/thermionic/internal/fsys"
-	sqlite3 "github.com/mattn/go-sqlite3"
-	"github.com/pkg/errors"
 )
 
 // DatabaseRegistrar represents a way to register and un-register drivers with

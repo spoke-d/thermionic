@@ -4,13 +4,13 @@ import (
 	"testing"
 	"time"
 
+	"github.com/golang/mock/gomock"
+	"github.com/pkg/errors"
 	"github.com/spoke-d/thermionic/internal/db/cluster"
 	"github.com/spoke-d/thermionic/internal/db/cluster/mocks"
 	"github.com/spoke-d/thermionic/internal/db/database"
 	"github.com/spoke-d/thermionic/internal/db/query"
 	"github.com/spoke-d/thermionic/internal/db/schema"
-	"github.com/golang/mock/gomock"
-	"github.com/pkg/errors"
 )
 
 type clusterDeps struct {

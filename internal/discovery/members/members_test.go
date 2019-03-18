@@ -5,8 +5,8 @@ import (
 	"testing"
 	"testing/quick"
 
-	"github.com/spoke-d/thermionic/internal/discovery/members"
 	"github.com/pkg/errors"
+	"github.com/spoke-d/thermionic/internal/discovery/members"
 )
 
 func TestMembersEvent(t *testing.T) {

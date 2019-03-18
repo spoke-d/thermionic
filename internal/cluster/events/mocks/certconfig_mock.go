@@ -5,9 +5,9 @@
 package mocks
 
 import (
-	client "github.com/spoke-d/thermionic/pkg/client"
 	gomock "github.com/golang/mock/gomock"
 	websocket "github.com/gorilla/websocket"
+	client "github.com/spoke-d/thermionic/pkg/client"
 	reflect "reflect"
 )
 

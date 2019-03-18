@@ -4,8 +4,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/spoke-d/thermionic/internal/tomb"
 	"github.com/pkg/errors"
+	"github.com/spoke-d/thermionic/internal/tomb"
 )
 
 func nothing() error { return nil }

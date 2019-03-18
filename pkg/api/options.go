@@ -3,8 +3,8 @@ package api
 import (
 	"time"
 
-	"github.com/spoke-d/thermionic/internal/clock"
 	"github.com/go-kit/kit/log"
+	"github.com/spoke-d/thermionic/internal/clock"
 )
 
 // Option to be passed to Connect to customize the resulting instance.

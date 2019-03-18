@@ -7,10 +7,10 @@ import (
 	"testing"
 	"testing/quick"
 
-	"github.com/spoke-d/thermionic/internal/discovery"
-	"github.com/spoke-d/thermionic/internal/discovery/mocks"
 	"github.com/go-kit/kit/log"
 	"github.com/golang/mock/gomock"
+	"github.com/spoke-d/thermionic/internal/discovery"
+	"github.com/spoke-d/thermionic/internal/discovery/mocks"
 )
 
 func TestPeerType(t *testing.T) {

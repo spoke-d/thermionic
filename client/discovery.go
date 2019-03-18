@@ -3,10 +3,10 @@ package client
 import (
 	"bytes"
 
+	"github.com/pkg/errors"
 	"github.com/spoke-d/thermionic/internal/json"
 	"github.com/spoke-d/thermionic/pkg/api/daemon/services"
 	"github.com/spoke-d/thermionic/pkg/client"
-	"github.com/pkg/errors"
 )
 
 // Discovery represents a way of interacting with the daemon API, which is

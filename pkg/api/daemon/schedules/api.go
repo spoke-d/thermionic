@@ -8,10 +8,10 @@ import (
 	"sort"
 	"time"
 
-	"github.com/spoke-d/thermionic/internal/schedules"
-	"github.com/spoke-d/thermionic/pkg/api"
 	"github.com/go-kit/kit/log"
 	"github.com/pborman/uuid"
+	"github.com/spoke-d/thermionic/internal/schedules"
+	"github.com/spoke-d/thermionic/pkg/api"
 )
 
 // Task defines a very lightweight task

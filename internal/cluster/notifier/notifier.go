@@ -4,13 +4,13 @@ import (
 	"fmt"
 	"sync"
 
+	"github.com/pkg/errors"
 	"github.com/spoke-d/thermionic/internal/cert"
 	"github.com/spoke-d/thermionic/internal/clock"
 	"github.com/spoke-d/thermionic/internal/config"
 	"github.com/spoke-d/thermionic/internal/db"
 	"github.com/spoke-d/thermionic/internal/node"
 	"github.com/spoke-d/thermionic/pkg/client"
-	"github.com/pkg/errors"
 )
 
 // State is a gateway to the two main stateful components, the database

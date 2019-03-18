@@ -7,10 +7,10 @@ import (
 	"io/ioutil"
 	"path/filepath"
 
+	"github.com/pkg/errors"
 	"github.com/spoke-d/thermionic/internal/cert"
 	"github.com/spoke-d/thermionic/internal/clui"
 	"github.com/spoke-d/thermionic/internal/fsys"
-	"github.com/pkg/errors"
 )
 
 func hasClientCertificate(fileSystem fsys.FileSystem, path string) bool {

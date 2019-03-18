@@ -4,11 +4,11 @@ import (
 	"io"
 	"testing"
 
+	"github.com/golang/mock/gomock"
+	"github.com/pkg/errors"
 	"github.com/spoke-d/thermionic/internal/db/database"
 	"github.com/spoke-d/thermionic/internal/db/schema"
 	"github.com/spoke-d/thermionic/internal/db/schema/mocks"
-	"github.com/golang/mock/gomock"
-	"github.com/pkg/errors"
 )
 
 func TestSchemaTableExists(t *testing.T) {

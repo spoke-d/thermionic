@@ -4,8 +4,8 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/spoke-d/thermionic/pkg/api"
 	"github.com/pkg/errors"
+	"github.com/spoke-d/thermionic/pkg/api"
 )
 
 // API defines a query API

@@ -3,10 +3,10 @@ package client
 import (
 	"time"
 
-	"github.com/spoke-d/thermionic/internal/net"
-	"github.com/spoke-d/thermionic/pkg/client"
 	"github.com/go-kit/kit/log"
 	"github.com/pkg/errors"
+	"github.com/spoke-d/thermionic/internal/net"
+	"github.com/spoke-d/thermionic/pkg/client"
 )
 
 // Client describes a very simple client for connecting to a daemon rest API

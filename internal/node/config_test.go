@@ -6,9 +6,9 @@ import (
 
 	"github.com/pkg/errors"
 
+	"github.com/golang/mock/gomock"
 	"github.com/spoke-d/thermionic/internal/node"
 	"github.com/spoke-d/thermionic/internal/node/mocks"
-	"github.com/golang/mock/gomock"
 )
 
 func TestConfigLoad(t *testing.T) {

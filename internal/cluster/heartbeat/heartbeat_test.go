@@ -8,12 +8,12 @@ import (
 	"testing"
 	"time"
 
+	"github.com/golang/mock/gomock"
+	"github.com/hashicorp/raft"
 	"github.com/spoke-d/thermionic/internal/cert"
 	"github.com/spoke-d/thermionic/internal/cluster/heartbeat"
 	"github.com/spoke-d/thermionic/internal/cluster/heartbeat/mocks"
 	"github.com/spoke-d/thermionic/internal/db"
-	"github.com/golang/mock/gomock"
-	"github.com/hashicorp/raft"
 )
 
 func TestHeartbeatRun(t *testing.T) {

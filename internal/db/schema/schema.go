@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/pkg/errors"
 	"github.com/spoke-d/thermionic/internal/db/database"
 	"github.com/spoke-d/thermionic/internal/db/query"
 	"github.com/spoke-d/thermionic/internal/fsys"
-	"github.com/pkg/errors"
 )
 
 // Schema captures the schema of a database in terms of a series of ordered

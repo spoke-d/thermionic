@@ -3,10 +3,10 @@ package schema
 import (
 	"io/ioutil"
 
+	"github.com/pkg/errors"
 	"github.com/spoke-d/thermionic/internal/db/database"
 	"github.com/spoke-d/thermionic/internal/db/query"
 	"github.com/spoke-d/thermionic/internal/fsys"
-	"github.com/pkg/errors"
 )
 
 const StmtSchemaTableExists = `

@@ -7,11 +7,11 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/spoke-d/thermionic/internal/db"
-	"github.com/spoke-d/thermionic/pkg/api"
 	"github.com/go-kit/kit/log"
 	"github.com/gorilla/mux"
 	"github.com/pkg/errors"
+	"github.com/spoke-d/thermionic/internal/db"
+	"github.com/spoke-d/thermionic/pkg/api"
 )
 
 // WaitAPI defines a operations/{id} API

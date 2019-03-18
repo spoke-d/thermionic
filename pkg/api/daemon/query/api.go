@@ -6,9 +6,9 @@ import (
 	"net/http"
 	"strings"
 
+	"github.com/pkg/errors"
 	"github.com/spoke-d/thermionic/internal/db/database"
 	"github.com/spoke-d/thermionic/pkg/api"
-	"github.com/pkg/errors"
 )
 
 // API defines a query API
