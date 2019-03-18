@@ -230,6 +230,9 @@ func (m *Map) set(name string, value string, initial bool) (bool, error) {
 
 	// Normalize boolan values, so the comparison below works fine.
 	current, err := m.GetRaw(name)
+	if err != nil {
+		return false, err
+	}
 	if key.Type == Bool {
 		value = normalizeBool(value)
 		current = normalizeBool(current)

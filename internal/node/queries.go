@@ -51,6 +51,9 @@ func DebugAddress(node Node, schema config.Schema) (string, error) {
 func PatchConfig(node Node, key string, value interface{}, schema config.Schema) error {
 	if err := node.Transaction(func(tx *db.NodeTx) error {
 		config, err := ConfigLoad(tx, schema)
+		if err != nil {
+			return errors.WithStack(err)
+		}
 		_, err = config.Patch(map[string]interface{}{
 			key: value,
 		})
