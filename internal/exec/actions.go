@@ -21,7 +21,7 @@ func Block(g *Group) {
 }
 
 // Interrupt creates a blocking executional group that becomes free if a
-// interupt or terminate os signal is received.
+// interrupt or terminate os signal is received.
 func Interrupt(g *Group) <-chan struct{} {
 	cancel := make(chan struct{})
 	g.Add(func() error {

@@ -110,7 +110,7 @@ func (a *API) Get(ctx context.Context, req *http.Request) api.Response {
 		return api.SmartError(err)
 	}
 
-	// Get local addres
+	// Get local address
 	localAddress, err := node.HTTPSAddress(d.Node(), d.NodeConfigSchema())
 	if err != nil {
 		return api.InternalError(err)

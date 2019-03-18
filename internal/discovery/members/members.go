@@ -18,7 +18,7 @@ const (
 	defaultAgentLogLevel = "WARN"
 )
 
-// Handler handles any events comming from the underlying serf agent
+// Handler handles any events coming from the underlying serf agent
 type Handler interface {
 	HandleEvent(Event)
 }
@@ -214,7 +214,7 @@ func (r Member) PeerInfo() (PeerInfo, error) {
 	return info, nil
 }
 
-// EventHandler defines a handler for dealing with events comming from the
+// EventHandler defines a handler for dealing with events coming from the
 // underlying serf agent
 type EventHandler struct {
 	handler Handler

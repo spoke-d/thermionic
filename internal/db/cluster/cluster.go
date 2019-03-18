@@ -356,7 +356,7 @@ func check(ctx *hookContext, address string, current, updates, apiExtensions int
 		address = "0.0.0.0"
 	}
 
-	// Update the schema and api_extension columns of oursleves.
+	// Update the schema and api_extension columns of ourselves.
 	if err := updateNodeVersion(tx, address, updates, apiExtensions); err != nil {
 		return errors.Wrap(err, "failed to update node version info")
 	}
