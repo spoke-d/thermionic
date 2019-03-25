@@ -4,6 +4,7 @@ import (
 	"time"
 )
 
+// Clock defines an interface for Clocks
 type Clock interface {
 
 	// Now returns the current local time.
@@ -21,6 +22,7 @@ type Clock interface {
 	After(d time.Duration) <-chan time.Time
 }
 
+// WallClock represents an implementation of Clock, that uses the wall time.
 type WallClock struct{}
 
 // New creates a new Clock

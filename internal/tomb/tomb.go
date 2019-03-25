@@ -8,8 +8,11 @@ import (
 )
 
 var (
+	// ErrStillAlive is a sentinel error to identify when a tomb is still alive.
 	ErrStillAlive = errors.New("still alive")
-	ErrDying      = errors.New("dying")
+
+	// ErrDying is a sentinel error to identify when a tomb is dying.
+	ErrDying = errors.New("dying")
 )
 
 // A Tomb tracks the lifecycle of one or more goroutines as alive,

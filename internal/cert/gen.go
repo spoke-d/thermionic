@@ -45,6 +45,7 @@ type CertGenerator struct {
 	organization []string
 }
 
+// CertKey represents a tuple of Certificates and Keys as a pair.
 type CertKey struct {
 	Cert, Key []byte
 }

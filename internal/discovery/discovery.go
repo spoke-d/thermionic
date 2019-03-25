@@ -270,6 +270,7 @@ func (s *Discovery) run(ctx context.Context) {
 	}
 }
 
+// NodeData is a tuple containing the NodeInfo and Daemon information.
 type NodeData struct {
 	NodeInfo      db.NodeInfo
 	DaemonAddress string
@@ -281,6 +282,8 @@ type nodeMarker struct {
 	Node   NodeData
 }
 
+// Intersection checks to see if there are any nodes and services that
+// need to be added or removed.
 func Intersection(nodes []db.NodeInfo, services []db.ServiceNodeInfo) (map[string]NodeData, map[string]NodeData) {
 	add := make(map[string]nodeMarker)
 	remove := make(map[string]NodeData)

@@ -1,5 +1,6 @@
 package operations
 
+// Status defines the operatoring status.
 type Status int
 
 const (

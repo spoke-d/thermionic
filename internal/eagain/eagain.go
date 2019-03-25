@@ -27,7 +27,7 @@ again:
 	}
 
 	// keep retrying on EAGAIN
-	errno, ok := getErrno(err)
+	ok, errno := getErrno(err)
 	if ok && (errno == syscall.EAGAIN || errno == syscall.EINTR) {
 		goto again
 	}
@@ -56,7 +56,7 @@ again:
 	}
 
 	// keep retrying on EAGAIN
-	errno, ok := getErrno(err)
+	ok, errno := getErrno(err)
 	if ok && (errno == syscall.EAGAIN || errno == syscall.EINTR) {
 		goto again
 	}
@@ -64,18 +64,18 @@ again:
 	return n, err
 }
 
-func getErrno(err error) (errno error, iserrno bool) {
+func getErrno(err error) (iserrno bool, errno error) {
 	if sysErr, ok := err.(*os.SyscallError); ok {
-		return sysErr.Err, true
+		return true, sysErr.Err
 	}
 
 	if pathErr, ok := err.(*os.PathError); ok {
-		return pathErr.Err, true
+		return true, pathErr.Err
 	}
 
 	if tmpErrno, ok := err.(syscall.Errno); ok {
-		return tmpErrno, true
+		return true, tmpErrno
 	}
 
-	return nil, false
+	return false, nil
 }

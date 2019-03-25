@@ -30,6 +30,7 @@ import (
 	"github.com/spoke-d/thermionic/internal/sys"
 )
 
+// NewTestState creates a state using mocks and testing infrastructure.
 func NewTestState(t *testing.T, apiExtensions, schema int) (*state.State, func()) {
 	node, nodeCleanup := NewTestNode(t)
 	cluster, clusterCleanup := NewTestCluster(t, apiExtensions, schema)
@@ -170,6 +171,7 @@ func NewTestClusterTx(t *testing.T, apiExtensions, schema int) (*db.ClusterTx, f
 	return clusterTx, cleanup
 }
 
+// NewTestOS creates a sys.OS with dummy test infrastructure.
 func NewTestOS(t *testing.T) (*sys.OS, func()) {
 	t.Helper()
 
@@ -278,6 +280,7 @@ type schemaProvider struct {
 	schema     cluster.SchemaProvider
 }
 
+// NewSchemaProvider creates a schemaProvider with test infrastructure.
 func NewSchemaProvider(t *testing.T, amount int) schemaProvider {
 	fs := NewFileSystem(t)
 	return schemaProvider{

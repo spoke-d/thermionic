@@ -120,6 +120,8 @@ func ServerTLSConfig(cert *Info, logger log.Logger) *tls.Config {
 	return config
 }
 
+// GetTLSConfigMem returns tls.Config using memory without reading the
+// filesystem
 func GetTLSConfigMem(
 	tlsClientCert,
 	tlsClientKey,

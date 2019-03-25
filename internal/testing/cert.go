@@ -27,6 +27,7 @@ func AltKeyPair() *cert.Info {
 	return cert.NewInfo(keypair, nil)
 }
 
+// TestCertPEMBlock is a testing cert
 var TestCertPEMBlock = []byte(`-----BEGIN CERTIFICATE-----
 MIIFzjCCA7igAwIBAgIRAKnCQRdpkZ86oXYOd9hGrPgwCwYJKoZIhvcNAQELMB4x
 HDAaBgNVBAoTE2xpbnV4Y29udGFpbmVycy5vcmcwHhcNMTUwNzE1MDQ1NjQ0WhcN
@@ -63,6 +64,7 @@ p7U=
 -----END CERTIFICATE-----
 `)
 
+// TestKeyPEMBlock is a testing key
 var TestKeyPEMBlock = []byte(`-----BEGIN RSA PRIVATE KEY-----
 MIIJKAIBAAKCAgEAyViJkCzoxa1NYilXqGJog6xzlSm4xt8KIzayc0JdB9VxEdIV
 dJqUzBAUtyCS4KZ9MbPmMEOX9NbBASL0tRK58/7KScq99Kj4XbVMLU1P/y5aW0ym

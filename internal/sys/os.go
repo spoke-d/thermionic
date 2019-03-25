@@ -27,6 +27,7 @@ func DefaultOS() *OS {
 	}
 }
 
+// New creates a new OS with the various directories.
 func New(varDir, cacheDir, logDir string) *OS {
 	return &OS{
 		varDir:   varDir,

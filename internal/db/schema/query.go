@@ -9,9 +9,13 @@ import (
 	"github.com/spoke-d/thermionic/internal/fsys"
 )
 
+// StmtSchemaTableExists represents a query for checking if the schema table
+// exists.
 const StmtSchemaTableExists = `
 SELECT COUNT(name) FROM sqlite_master WHERE type = 'table' AND name = 'schema'
 `
+
+// StmtCreateTable represents a query for creating a schema table.
 const StmtCreateTable = `
 CREATE TABLE schema (
     id         INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
@@ -20,15 +24,25 @@ CREATE TABLE schema (
     UNIQUE (version)
 )
 `
+
+// StmtSelectSchemaVersions represents a query to get the version from the
+// schema table
 const StmtSelectSchemaVersions = `
 SELECT version FROM schema ORDER BY version
 `
+
+// StmtSelectTableSQL represents a query to get the sql from a table.
 const StmtSelectTableSQL = `
 SELECT sql FROM sqlite_master WHERE type = 'table' AND name NOT LIKE 'sqlite_%' AND name != 'schema' ORDER BY name
 `
+
+// StmtInsertSchemaVersion represents an insert query for inserting versions
+// into the schema.
 const StmtInsertSchemaVersion = `
 INSERT INTO schema (version, updated_at) VALUES (?, strftime("%s"))
 `
+
+// StmtDump represents a query to insert a query when performing a dump query.
 const StmtDump = `
 INSERT INTO schema (version, updated_at) VALUES (%d, strftime("%%s"))
 `

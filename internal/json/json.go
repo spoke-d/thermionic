@@ -12,6 +12,7 @@ import (
 	"github.com/pkg/errors"
 )
 
+// Read consumes a io.Reader data and unmarshals it directly from JSON
 func Read(r io.Reader, req interface{}) error {
 	buf, err := ioutil.ReadAll(r)
 	if err != nil {
@@ -39,6 +40,7 @@ func Write(w http.ResponseWriter, body interface{}, debug bool, logger log.Logge
 	return errors.WithStack(err)
 }
 
+// Debug consumes a bytes.Buffer and indents the JSON in a pretty output.
 func Debug(r *bytes.Buffer, logger log.Logger) {
 	pretty := new(bytes.Buffer)
 	if err := json.Indent(pretty, r.Bytes(), "\t", "\t"); err != nil {

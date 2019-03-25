@@ -49,13 +49,16 @@ func (p *AddressProvider) ServerAddr(id raft.ServerID) (raft.ServerAddress, erro
 	return raft.ServerAddress(address), nil
 }
 
+// CacheAddressProvider provides an implementation that attempts to cache
+// addresses for use for server address function, without hitting the database
+// for every lookup.
 type CacheAddressProvider struct {
 	provider *AddressProvider
 	cache    *lru.LRU
 	mutex    sync.RWMutex
 }
 
-// CachedAddressProvider creates a AddressProvider with sane defaults
+// NewCacheAddressProvider creates a AddressProvider with sane defaults
 func NewCacheAddressProvider(db Node) *CacheAddressProvider {
 	return &CacheAddressProvider{
 		provider: NewAddressProvider(db),

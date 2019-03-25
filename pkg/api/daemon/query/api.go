@@ -160,15 +160,18 @@ func contains(a []string, b string) bool {
 	return false
 }
 
+// Query represents a marshalled object for query information
 type Query struct {
 	Database string `json:"database" yaml:"database"`
 	Query    string `json:"query" yaml:"query"`
 }
 
+// Batch represents a marshalled object for batched query results
 type Batch struct {
 	Results []Result `json:"results" yaml:"results"`
 }
 
+// Result represents a marshalled result object
 type Result struct {
 	Type         string          `json:"type" yaml:"type"`
 	Columns      []string        `json:"columns" yaml:"columns"`

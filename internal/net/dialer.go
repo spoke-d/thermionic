@@ -7,6 +7,7 @@ import (
 	"github.com/pkg/errors"
 )
 
+// RFC3493Dialer creates a new connection in the form of a RFC3493 standards.
 func RFC3493Dialer(network, address string) (net.Conn, error) {
 	host, port, err := net.SplitHostPort(address)
 	if err != nil {

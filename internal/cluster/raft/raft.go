@@ -177,6 +177,7 @@ type RegistryProvider interface {
 	FSM(*dqlite.Registry) raft.FSM
 }
 
+// RaftProvider is a point of use alias for creating a Raft instance
 type RaftProvider interface {
 	Raft(*raft.Config, raft.FSM, LogStore, raft.SnapshotStore, raft.Transport) (*raft.Raft, error)
 }

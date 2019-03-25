@@ -23,6 +23,7 @@ type Response interface {
 	Render(http.ResponseWriter) error
 }
 
+// SyncResponse defines a response that is synchronous
 func SyncResponse(success bool, metadata interface{}) Response {
 	return &syncResponse{
 		success:  success,
@@ -30,6 +31,8 @@ func SyncResponse(success bool, metadata interface{}) Response {
 	}
 }
 
+// SyncResponseRedirect defines a successful response that will aways perform a
+// permanent redirect.
 func SyncResponseRedirect(address string) Response {
 	return &syncResponse{
 		success:  true,
@@ -38,6 +41,8 @@ func SyncResponseRedirect(address string) Response {
 	}
 }
 
+// SyncResponseETag defines a response that can add ETag as additional
+// information
 func SyncResponseETag(success bool, metadata interface{}, eTag interface{}) Response {
 	return &syncResponse{
 		success:  success,
@@ -46,6 +51,7 @@ func SyncResponseETag(success bool, metadata interface{}, eTag interface{}) Resp
 	}
 }
 
+// EmptySyncResponse defines an empty successful response
 func EmptySyncResponse() Response {
 	return &syncResponse{
 		success:  true,
@@ -64,6 +70,8 @@ type syncResponse struct {
 	logger   log.Logger
 }
 
+// Render will consume a http.ResponseWriter and return an error in a vistor
+// pattern scenario.
 func (r *syncResponse) Render(w http.ResponseWriter) error {
 	// Set an appropriate ETag header
 	if r.eTag != nil {
@@ -111,6 +119,8 @@ func (r *errorResponse) String() string {
 	return r.msg
 }
 
+// Render will consume a http.ResponseWriter and return an error in a vistor
+// pattern scenario.
 func (r *errorResponse) Render(w http.ResponseWriter) error {
 	w.Header().Set("Content-Type", "application/json")
 	w.Header().Set("X-Content-Type-Options", "nosniff")
@@ -124,6 +134,7 @@ func (r *errorResponse) Render(w http.ResponseWriter) error {
 	}, false, r.logger)
 }
 
+// NotImplemented takes an error and returns a Response of not implemented.
 func NotImplemented(err error) Response {
 	message := "not implemented"
 	if err != nil {
@@ -135,6 +146,7 @@ func NotImplemented(err error) Response {
 	}
 }
 
+// NotFound takes an error and returns a Response of not found.
 func NotFound(err error) Response {
 	message := "not found"
 	if err != nil {
@@ -146,6 +158,7 @@ func NotFound(err error) Response {
 	}
 }
 
+// Forbidden takes an error and returns a Response of forbidden error.
 func Forbidden(err error) Response {
 	message := "not authorized"
 	if err != nil {
@@ -157,6 +170,7 @@ func Forbidden(err error) Response {
 	}
 }
 
+// Conflict takes an error and returns a Response of conflict error.
 func Conflict(err error) Response {
 	message := "already exists"
 	if err != nil {
@@ -168,6 +182,7 @@ func Conflict(err error) Response {
 	}
 }
 
+// Unavailable takes an error and returns a Response of unavailable error.
 func Unavailable(err error) Response {
 	message := "unavailable"
 	if err != nil {
@@ -179,6 +194,7 @@ func Unavailable(err error) Response {
 	}
 }
 
+// BadRequest takes an error and returns a Response of badrequest error.
 func BadRequest(err error) Response {
 	return &errorResponse{
 		code: http.StatusBadRequest,
@@ -186,6 +202,7 @@ func BadRequest(err error) Response {
 	}
 }
 
+// InternalError takes an error and returns a Response of internal server error.
 func InternalError(err error) Response {
 	return &errorResponse{
 		code: http.StatusInternalServerError,
@@ -193,6 +210,8 @@ func InternalError(err error) Response {
 	}
 }
 
+// PreconditionFailed takes an error and returns a Response of precondition
+// failed error.
 func PreconditionFailed(err error) Response {
 	return &errorResponse{
 		code: http.StatusPreconditionFailed,
@@ -200,9 +219,7 @@ func PreconditionFailed(err error) Response {
 	}
 }
 
-/*
- * SmartError returns the right error message based on err.
- */
+//SmartError returns the right error message based on err.
 func SmartError(err error) Response {
 	switch errors.Cause(err) {
 	case nil:
