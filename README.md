@@ -29,7 +29,7 @@ DB Clustering work is derived from [lxc/lxd](https://github.com/lxc/lxd)
 
 ## Motivation
 
-Whilst re-visiting LXD clustering in the [Juju](https://github.com/juju/juju),
+Whilst re-visiting LXD clustering in [Juju](https://github.com/juju/juju),
 I wanted to understand how LXD clustering worked in terms of querying and 
 configuring the cluster. Whilst doing this, it was surprising how clean the
 implementation was for setting up a clustered SQLite database and so removing
