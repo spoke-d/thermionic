@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/spoke-d/thermionic/internal/clui"
-	"github.com/spoke-d/thermionic/internal/clui/style"
+	"github.com/spoke-d/clui"
+	"github.com/spoke-d/clui/style"
 )
 
 const header = `

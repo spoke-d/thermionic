@@ -3,8 +3,8 @@ package main
 import (
 	"flag"
 
-	"github.com/spoke-d/thermionic/internal/clui"
-	"github.com/spoke-d/thermionic/internal/clui/flagset"
+	"github.com/spoke-d/clui"
+	"github.com/spoke-d/clui/flagset"
 )
 
 const (

@@ -9,7 +9,7 @@ import (
 
 	"github.com/pkg/errors"
 	"github.com/spoke-d/thermionic/internal/cert"
-	"github.com/spoke-d/thermionic/internal/clui"
+	"github.com/spoke-d/clui"
 	"github.com/spoke-d/thermionic/internal/fsys"
 )
 

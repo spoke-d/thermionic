@@ -8,7 +8,7 @@ import (
 
 	"github.com/go-kit/kit/log"
 	"github.com/go-logfmt/logfmt"
-	"github.com/spoke-d/thermionic/internal/clui"
+	"github.com/spoke-d/clui"
 )
 
 type logCluiEncoder struct {

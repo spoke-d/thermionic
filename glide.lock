@@ -1,5 +1,5 @@
-hash: 62fc91afe79018ee1df84fde572aba8a3a6935b191f38581e11350a4832fe73b
-updated: 2019-03-18T12:07:57.482721618Z
+hash: 36ccb71ea6336603cbf735c0d4b36ecb4d108629332dc49a944884d52a40f2e2
+updated: 2019-04-03T16:09:19.080950962+01:00
 imports:
 - name: github.com/armon/circbuf
   version: bbbad097214e2918d8543d5201d12bfd7bca254d
@@ -153,6 +153,8 @@ imports:
   version: c3f2b6a0a84bbf048eafea7f53c393899492806b
 - name: github.com/SimonRichardson/resilience
   version: 2ec8da7dcb4ac9f31e2f5d1d3e83a729d7da1e67
+- name: github.com/spoke-d/clui
+  version: 0ed1770e08e445d25652d85f2247c2fb7e5d1fdf
 - name: github.com/stretchr/testify
   version: f35b8ab0b5a2cef36673838d662e249dd9c94686
   subpackages:
