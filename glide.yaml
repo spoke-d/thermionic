@@ -6,7 +6,7 @@ import:
   - package: github.com/SimonRichardson/resilience
   - package: github.com/SimonRichardson/flagset
   - package: github.com/CanonicalLtd/go-dqlite
-    version: aa4ab8dc4fdd7c50a50e0addb396d41d1d847796
+    version: 3eab944668d7af5d0fc69ddb387ffda76300541c
   - package: github.com/CanonicalLtd/raft-http
   - package: github.com/CanonicalLtd/raft-membership
   - package: github.com/CanonicalLtd/raft-test
@@ -43,3 +43,13 @@ import:
   - package: github.com/olekukonko/tablewriter
   - package: github.com/pborman/uuid
   - package: gopkg.in/yaml.v2
+  - package: github.com/armon/circbuf
+  - package: github.com/davecgh/go-spew/spew
+  - package: github.com/google/uuid
+  - package: github.com/hashicorp/go-multierror
+  - package: github.com/hashicorp/go-syslog
+  - package: github.com/hashicorp/mdns
+  - package: github.com/mitchellh/cli
+  - package: github.com/mitchellh/mapstructure
+  - package: github.com/pmezard/go-difflib/difflib
+  - package: github.com/sean-/seed

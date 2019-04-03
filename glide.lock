@@ -1,5 +1,5 @@
-hash: 36ccb71ea6336603cbf735c0d4b36ecb4d108629332dc49a944884d52a40f2e2
-updated: 2019-04-03T16:09:19.080950962+01:00
+hash: eef176da4c1cad7ee7a025a58e37bde5ded51b9b2014ccd9a20def21ca3c7b3a
+updated: 2019-04-03T17:31:31.000347279+01:00
 imports:
 - name: github.com/armon/circbuf
   version: bbbad097214e2918d8543d5201d12bfd7bca254d
@@ -12,7 +12,7 @@ imports:
 - name: github.com/boltdb/bolt
   version: fd01fc79c553a8e99d512a07e8e0c63d4a3ccfc5
 - name: github.com/CanonicalLtd/go-dqlite
-  version: aa4ab8dc4fdd7c50a50e0addb396d41d1d847796
+  version: 3eab944668d7af5d0fc69ddb387ffda76300541c
   subpackages:
   - internal/bindings
   - internal/client
@@ -155,6 +155,15 @@ imports:
   version: 2ec8da7dcb4ac9f31e2f5d1d3e83a729d7da1e67
 - name: github.com/spoke-d/clui
   version: 0ed1770e08e445d25652d85f2247c2fb7e5d1fdf
+  subpackages:
+  - args
+  - ask
+  - distance
+  - flagset
+  - install
+  - isatty
+  - radix
+  - style
 - name: github.com/stretchr/testify
   version: f35b8ab0b5a2cef36673838d662e249dd9c94686
   subpackages:

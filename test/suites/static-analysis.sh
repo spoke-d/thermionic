@@ -30,6 +30,35 @@ test_static_analysis() {
       go vet ./...
     fi
 
+    ## golint
+    if which golint >/dev/null 2>&1; then
+      golint -set_exit_status ./
+    fi
+
+    ## deadcode
+    if which deadcode >/dev/null 2>&1; then
+      OUT=$(deadcode ./ 2>&1 || true)
+      if [ -n "${OUT}" ]; then
+        echo "${OUT}" >&2
+        false
+      fi
+    fi
+
+    ## misspell
+    if which misspell >/dev/null 2>&1; then
+      OUT=$(misspell 2>/dev/null ./ | grep -Ev "^vendor/" || true)
+      if [ -n "${OUT}" ]; then
+        echo "Found some typos"
+        echo "${OUT}"
+        exit 1
+      fi
+    fi
+
+    ## ineffassign
+    if which ineffassign >/dev/null 2>&1; then
+      ineffassign ./
+    fi
+
     # Skip the tests which require git
     if ! git status; then
       return
