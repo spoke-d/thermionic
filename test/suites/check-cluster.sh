@@ -67,14 +67,22 @@ $(cat ${THERM_ONE_DIR}/server.key | sed -e 's/^/    /')
 EOF
     )
 
+    echo "==> Check cluster list"
+    (
+        set -e
+
+        THERM_DIR="${THERM_ONE_DIR}" therm cluster list --address="127.0.0.1:8090" --format="json" | jq '.[] | select(.server_name == "node1") | .database' | grep -q "true"
+        THERM_DIR="${THERM_TWO_DIR}" therm cluster list --address="127.0.0.1:9000" --format="json" | jq '.[] | select(.server_name == "node2") | .database' | grep -q "true"
+    )
+
     # Configuration keys can be changed on any node.
     echo "==> Check cluster config"
     (
         set -e
 
-        THERM_DIR="${THERM_ONE_DIR}" therm config set --address="127.0.0.1:8090" cluster.offline_threshold 30
-        THERM_DIR="${THERM_ONE_DIR}" therm info --address="127.0.0.1:8090" | grep -q 'cluster.offline_threshold: "30"'
-        THERM_DIR="${THERM_TWO_DIR}" therm info --address="127.0.0.1:9000" | grep -q 'cluster.offline_threshold: "30"'
+        THERM_DIR="${THERM_ONE_DIR}" therm config set --address="127.0.0.1:8090" cluster.offline_threshold 31
+        THERM_DIR="${THERM_ONE_DIR}" therm info --address="127.0.0.1:8090" | grep -q 'cluster.offline_threshold: "31"'
+        THERM_DIR="${THERM_TWO_DIR}" therm info --address="127.0.0.1:9000" | grep -q 'cluster.offline_threshold: "31"'
 
         THERM_DIR="${THERM_TWO_DIR}" therm config set --address="127.0.0.1:9000" cluster.offline_threshold 40
         THERM_DIR="${THERM_ONE_DIR}" therm info --address="127.0.0.1:8090" | grep -q 'cluster.offline_threshold: "40"'
@@ -99,6 +107,7 @@ EOF
     (
         set -e
 
+        THERM_DIR="${THERM_ONE_DIR}" therm cluster list --address="127.0.0.1:8090"
         THERM_DIR="${THERM_ONE_DIR}" therm cluster list --address="127.0.0.1:8090" --format="json" | jq '.[] | select(.server_name == "node1") | .database' | grep -q "true"
         THERM_DIR="${THERM_TWO_DIR}" therm cluster list --address="127.0.0.1:9000" --format="json" | jq '.[] | select(.server_name == "node2") | .database' | grep -q "true"
         THERM_DIR="${THERM_THREE_DIR}" therm cluster list --address="127.0.0.1:9010" --format="json" | jq '.[] | select(.server_name == "node3") | .database' | grep -q "true"
