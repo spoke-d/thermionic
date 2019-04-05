@@ -75,7 +75,7 @@ trap cleanup EXIT HUP INT TERM
 import_subdir_files suites
 
 # Setup test directory
-TEST_DIR=$(mktemp -d -p "$(pwd)" tmp.XXX)
+TEST_DIR=$(mktemp -d tmp.XXX)
 chmod +x "${TEST_DIR}"
 
 THERM_DIR=$(mktemp -d -p "${TEST_DIR}" XXX)

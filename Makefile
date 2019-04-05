@@ -20,7 +20,7 @@ setup:
 build: bin/therm
 
 install:
-	go install -ldflags "-s -w" -v -tags "$(TAG_SQLITE3)" $(PATH_THERMIONIC)/cmd/therm/...
+	go install -v -tags "$(TAG_SQLITE3)" $(PATH_THERMIONIC)/cmd/therm/...
 
 clean:
 	rm -f bin/therm
@@ -30,7 +30,7 @@ bin/therm:
 
 .PHONY: check
 check: clean build install
-	go test -v -tags "$(TAG_SQLITE3) integration" ./...
+	# go test -v -tags "$(TAG_SQLITE3) integration" ./...
 	cd test && ./main.sh
 
 .PHONY: update

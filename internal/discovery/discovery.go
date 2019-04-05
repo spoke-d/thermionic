@@ -149,7 +149,6 @@ func (s *Discovery) run(ctx context.Context) {
 		return
 	}
 	if !clustered {
-		level.Info(s.logger).Log("msg", "Discovery requires daemon to be clustered")
 		return
 	}
 
