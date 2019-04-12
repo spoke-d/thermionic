@@ -23,7 +23,7 @@ import (
 	"github.com/spoke-d/thermionic/internal/db/database"
 	"github.com/spoke-d/thermionic/internal/operations"
 	"github.com/spoke-d/thermionic/internal/schedules"
-	"github.com/spoke-d/thermionic/internal/task"
+	"github.com/spoke-d/task"
 )
 
 // Interval represents the number of seconds to wait between to heartbeat

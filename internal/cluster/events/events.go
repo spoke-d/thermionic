@@ -12,7 +12,7 @@ import (
 	"github.com/spoke-d/thermionic/internal/cert"
 	"github.com/spoke-d/thermionic/internal/clock"
 	"github.com/spoke-d/thermionic/internal/db"
-	"github.com/spoke-d/thermionic/internal/task"
+	"github.com/spoke-d/task"
 	"github.com/spoke-d/thermionic/pkg/client"
 	"github.com/spoke-d/thermionic/pkg/events"
 )

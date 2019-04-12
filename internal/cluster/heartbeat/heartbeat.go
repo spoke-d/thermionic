@@ -16,7 +16,7 @@ import (
 	"github.com/spoke-d/thermionic/internal/cert"
 	"github.com/spoke-d/thermionic/internal/db"
 	"github.com/spoke-d/thermionic/internal/net"
-	"github.com/spoke-d/thermionic/internal/task"
+	"github.com/spoke-d/task"
 )
 
 // DatabaseEndpoint specifies the API endpoint path that gets routed to a dqlite

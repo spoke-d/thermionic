@@ -10,7 +10,7 @@ import (
 	"github.com/pkg/errors"
 	"github.com/spoke-d/thermionic/internal/db"
 	"github.com/spoke-d/thermionic/internal/lru"
-	"github.com/spoke-d/thermionic/internal/task"
+	"github.com/spoke-d/task"
 )
 
 // Interval represents the number of seconds to wait between to gc

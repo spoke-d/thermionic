@@ -1,5 +1,5 @@
-hash: eef176da4c1cad7ee7a025a58e37bde5ded51b9b2014ccd9a20def21ca3c7b3a
-updated: 2019-04-03T17:31:31.000347279+01:00
+hash: cd772943245410c282b6c48bba5b0214eb0d5a0edfde46a47f2d9648253f1c0f
+updated: 2019-04-12T17:51:08.028382416+01:00
 imports:
 - name: github.com/armon/circbuf
   version: bbbad097214e2918d8543d5201d12bfd7bca254d
@@ -62,6 +62,8 @@ imports:
   version: 4bd1920723d7b7c925de087aa32e2187708897f7
   subpackages:
   - proto
+- name: github.com/google/btree
+  version: 20236160a414454a9c64b6c8829381c6f4bddcaa
 - name: github.com/google/uuid
   version: 9b3b1e0f5f99ae461456d768e7d301a7acdaa2d8
 - name: github.com/gorilla/context
@@ -93,13 +95,13 @@ imports:
 - name: github.com/hashicorp/mdns
   version: 4e527d9d808175f132f949523e640c699e4253bb
 - name: github.com/hashicorp/memberlist
-  version: 2072f3a3ff4b7b3d830be77678d5d4b978362bc4
+  version: a8f83c6403e0c718e9336784a270c09dc4613d3e
 - name: github.com/hashicorp/raft
-  version: 82694fb663be3ffa7769961ee9a65e4c39ebbf2c
+  version: d9517af3f8d2d25aaf55786b8fef505736940c5a
 - name: github.com/hashicorp/raft-boltdb
   version: 6e5ba93211eaf8d9a2ad7e41ffad8c6f160f9fe3
 - name: github.com/hashicorp/serf
-  version: 4a3a10ccd1b09be9af798006fc9c85827b5f2ba6
+  version: e516ab3e97c38fc10fb0dbde0437751823d08300
   subpackages:
   - cmd/serf/command/agent
   - coordinate
@@ -154,7 +156,7 @@ imports:
 - name: github.com/SimonRichardson/resilience
   version: 2ec8da7dcb4ac9f31e2f5d1d3e83a729d7da1e67
 - name: github.com/spoke-d/clui
-  version: 0ed1770e08e445d25652d85f2247c2fb7e5d1fdf
+  version: 06472c84a1c9917a8137f3c5e6987bdb40f29076
   subpackages:
   - args
   - ask
@@ -164,6 +166,8 @@ imports:
   - isatty
   - radix
   - style
+- name: github.com/spoke-d/task
+  version: 1988a8e47acfcdd68c59ba6751f9dd841d75a020
 - name: github.com/stretchr/testify
   version: f35b8ab0b5a2cef36673838d662e249dd9c94686
   subpackages:

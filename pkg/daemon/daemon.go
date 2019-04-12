@@ -36,7 +36,7 @@ import (
 	"github.com/spoke-d/thermionic/internal/retrier"
 	"github.com/spoke-d/thermionic/internal/schedules"
 	"github.com/spoke-d/thermionic/internal/state"
-	"github.com/spoke-d/thermionic/internal/task"
+	"github.com/spoke-d/task"
 	"github.com/spoke-d/thermionic/pkg/api"
 )
 

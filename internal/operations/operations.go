@@ -12,7 +12,7 @@ import (
 	"github.com/pkg/errors"
 	"github.com/spoke-d/thermionic/internal/db"
 	"github.com/spoke-d/thermionic/internal/db/database"
-	"github.com/spoke-d/thermionic/internal/task"
+	"github.com/spoke-d/task"
 )
 
 // Cluster mediates access to data stored in the cluster dqlite database.

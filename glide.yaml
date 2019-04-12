@@ -2,6 +2,7 @@ package: github.com/spoke-d/thermionic
 import:
   - package: github.com/pkg/errors
   - package: github.com/spoke-d/clui
+  - package: github.com/spoke-d/task
   - package: github.com/SimonRichardson/gexec
   - package: github.com/SimonRichardson/resilience
   - package: github.com/SimonRichardson/flagset

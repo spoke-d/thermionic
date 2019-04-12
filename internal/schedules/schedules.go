@@ -17,7 +17,7 @@ import (
 	"github.com/spoke-d/thermionic/internal/db"
 	"github.com/spoke-d/thermionic/internal/db/database"
 	"github.com/spoke-d/thermionic/internal/node"
-	"github.com/spoke-d/thermionic/internal/task"
+	"github.com/spoke-d/task"
 	"github.com/spoke-d/thermionic/internal/tomb"
 )
 

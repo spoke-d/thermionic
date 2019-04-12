@@ -19,7 +19,7 @@ import (
 	"github.com/spoke-d/thermionic/internal/endpoints"
 	"github.com/spoke-d/thermionic/internal/fsys"
 	"github.com/spoke-d/thermionic/internal/retrier"
-	"github.com/spoke-d/thermionic/internal/task"
+	"github.com/spoke-d/task"
 	"github.com/spoke-d/thermionic/pkg/api"
 )
 
