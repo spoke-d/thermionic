@@ -131,10 +131,10 @@ func membershipCheckClusterStateForAccept(tx *db.ClusterTx, name string, address
 			return errors.Errorf("cluster already has node with address %s", address)
 		}
 		if node.Schema != schema {
-			return errors.Errorf("schema version mismatch: cluster has %d", node.Schema)
+			return errors.Errorf("schema version mismatch: cluster has %d, expects %d", node.Schema, schema)
 		}
 		if node.APIExtensions != api {
-			return errors.Errorf("api version mismatch: cluster has %d", node.APIExtensions)
+			return errors.Errorf("api version mismatch: cluster has %d, expects %d", node.APIExtensions, api)
 		}
 	}
 

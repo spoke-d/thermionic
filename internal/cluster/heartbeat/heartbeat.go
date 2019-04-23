@@ -7,16 +7,17 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"sync"
 	"time"
 
 	"github.com/go-kit/kit/log"
 	"github.com/go-kit/kit/log/level"
 	"github.com/hashicorp/raft"
 	"github.com/pkg/errors"
+	"github.com/spoke-d/task"
 	"github.com/spoke-d/thermionic/internal/cert"
 	"github.com/spoke-d/thermionic/internal/db"
 	"github.com/spoke-d/thermionic/internal/net"
-	"github.com/spoke-d/task"
 )
 
 // DatabaseEndpoint specifies the API endpoint path that gets routed to a dqlite
@@ -168,19 +169,39 @@ func (h *Heartbeat) run(ctx context.Context) {
 		return
 	}
 	heartbeats := make([]time.Time, len(nodes))
+
+	var mutex sync.Mutex
+	var wg sync.WaitGroup
+
 	for i, node := range nodes {
-		var err error
-		// Only send actual requests to other nodes
-		if node.Address != nodeAddress {
-			err = h.heartbeatNode(ctx, node.Address, h.gateway.Cert(), raftNodes)
-		}
-		if err == nil {
-			level.Debug(h.logger).Log("msg", "Successful heartbeat", "address", node.Address)
+
+		// Special case the local node
+		if node.Address == nodeAddress {
+			mutex.Lock()
 			heartbeats[i] = time.Now()
-		} else {
-			level.Error(h.logger).Log("msg", "Failed heartbeat", "address", node.Address, "err", err)
+			mutex.Unlock()
+			continue
 		}
+
+		// Parallelize the rest
+		wg.Add(1)
+		go func(i int, address string) {
+			defer wg.Done()
+
+			level.Debug(h.logger).Log("msg", "Sending heartbeat", "address", address)
+			if err := h.heartbeatNode(ctx, address, h.gateway.Cert(), raftNodes); err == nil {
+				level.Debug(h.logger).Log("msg", "Successful heartbeat", "address", address)
+
+				mutex.Lock()
+				heartbeats[i] = time.Now()
+				mutex.Unlock()
+			} else {
+				level.Error(h.logger).Log("msg", "Failed heartbeat", "address", address, "err", err)
+			}
+		}(i, node.Address)
 	}
+	wg.Wait()
+
 	// If the context has been cancelled, return immediately.
 	if ctx.Err() != nil {
 		level.Debug(h.logger).Log("msg", "Aborting heartbeat round")

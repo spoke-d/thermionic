@@ -31,7 +31,7 @@ func TestNewJoin(t *testing.T) {
 		server := libtesting.NewTestServer(t, certInfo, mux)
 		defer server.Close()
 
-		state, cleanup := libtesting.NewTestState(t, 1, 1)
+		state, cleanup := libtesting.NewTestState(t, 1, 2)
 		defer cleanup()
 
 		gateway := libtesting.NewTestGateway(t, state.Node(), certInfo)
@@ -83,7 +83,7 @@ func TestNewJoin(t *testing.T) {
 	server := libtesting.NewTestServer(t, certInfo, mux)
 	defer server.Close()
 
-	state, cleanup := libtesting.NewTestState(t, 1, 1)
+	state, cleanup := libtesting.NewTestState(t, 1, 2)
 	defer cleanup()
 
 	gateway := libtesting.NewTestGateway(t, state.Node(), altCertInfo)
@@ -122,7 +122,7 @@ func TestNewJoin(t *testing.T) {
 		makeMembershipStateShim(targetState),
 		makeMembershipGatewayShim(targetGateway),
 	)
-	raftNodes, err := acceptTask.Run("rusp", address, 1, 1)
+	raftNodes, err := acceptTask.Run("rusp", address, 2, 1)
 	if err != nil {
 		t.Error(err)
 	}
@@ -144,7 +144,7 @@ func TestNewJoin(t *testing.T) {
 		t.Error(err)
 	}
 	if expected, actual := 2, len(raftNodes); expected != actual {
-		t.Errorf("expected: %v, actual: %v", expected, actual)
+		t.Fatalf("expected: %v, actual: %v", expected, actual)
 	}
 	if expected, actual := int64(1), raftNodes[0].ID; expected != actual {
 		t.Errorf("expected: %v, actual: %v", expected, actual)
