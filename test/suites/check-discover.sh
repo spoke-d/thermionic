@@ -1,12 +1,12 @@
 test_discovery() {
     THERM_ONE_DIR=$(mktemp -d -p "${TEST_DIR}" XXX)
     chmod +x "${THERM_ONE_DIR}"
-    spawn_therm "${TEST_DIR}" "${THERM_ONE_DIR}" 8090
+    spawn_therm "${TEST_DIR}" "${THERM_ONE_DIR}" 8090 "true"
     echo "==> Spawn additional cluster node1 in ${THERM_ONE_DIR}"
 
     THERM_TWO_DIR=$(mktemp -d -p "${TEST_DIR}" XXX)
     chmod +x "${THERM_TWO_DIR}"
-    spawn_therm "${TEST_DIR}" "${THERM_TWO_DIR}" 9000
+    spawn_therm "${TEST_DIR}" "${THERM_TWO_DIR}" 9000 "true"
     echo "==> Spawn additional cluster node2 in ${THERM_TWO_DIR}"
 
     (
@@ -46,12 +46,12 @@ test_discovery() {
 test_discovery_join() {
     THERM_ONE_DIR=$(mktemp -d -p "${TEST_DIR}" XXX)
     chmod +x "${THERM_ONE_DIR}"
-    spawn_therm "${TEST_DIR}" "${THERM_ONE_DIR}" 8090
+    spawn_therm "${TEST_DIR}" "${THERM_ONE_DIR}" 8090 "true"
     echo "==> Spawn additional cluster node1 in ${THERM_ONE_DIR}"
 
     THERM_TWO_DIR=$(mktemp -d -p "${TEST_DIR}" XXX)
     chmod +x "${THERM_TWO_DIR}"
-    spawn_therm "${TEST_DIR}" "${THERM_TWO_DIR}" 9000
+    spawn_therm "${TEST_DIR}" "${THERM_TWO_DIR}" 9000 "true"
     echo "==> Spawn additional cluster node2 in ${THERM_TWO_DIR}"
 
     local leader="127.0.0.1:8090"
@@ -91,12 +91,12 @@ test_discovery_join() {
 test_discovery_leave() {
     THERM_ONE_DIR=$(mktemp -d -p "${TEST_DIR}" XXX)
     chmod +x "${THERM_ONE_DIR}"
-    spawn_therm "${TEST_DIR}" "${THERM_ONE_DIR}" 8090
+    spawn_therm "${TEST_DIR}" "${THERM_ONE_DIR}" 8090 "true"
     echo "==> Spawn additional cluster node1 in ${THERM_ONE_DIR}"
 
     THERM_TWO_DIR=$(mktemp -d -p "${TEST_DIR}" XXX)
     chmod +x "${THERM_TWO_DIR}"
-    spawn_therm "${TEST_DIR}" "${THERM_TWO_DIR}" 9000
+    spawn_therm "${TEST_DIR}" "${THERM_TWO_DIR}" 9000 "true"
     echo "==> Spawn additional cluster node2 in ${THERM_TWO_DIR}"
 
     local leader="127.0.0.1:8090"

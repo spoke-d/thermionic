@@ -206,13 +206,14 @@ func NewGateway(database Node, nodeConfigSchema config.Schema, fileSystem fsys.F
 		acceptCh:         make(chan net.Conn),
 		store:            &ServerStore{},
 
-		raftProvider:   opts.raftProvider,
-		netProvider:    opts.netProvider,
-		storeProvider:  opts.storeProvider,
-		serverProvider: opts.serverProvider,
-		sleeper:        opts.sleeper,
-		latency:        opts.latency,
-		logger:         opts.logger,
+		raftProvider:    opts.raftProvider,
+		netProvider:     opts.netProvider,
+		storeProvider:   opts.storeProvider,
+		serverProvider:  opts.serverProvider,
+		addressProvider: raft.NewAddressProvider(opts.database),
+		sleeper:         opts.sleeper,
+		latency:         opts.latency,
+		logger:          opts.logger,
 	}
 
 	return gateway
@@ -473,10 +474,6 @@ func (g *Gateway) RaftNodes() ([]db.RaftNode, error) {
 	nodes := make([]db.RaftNode, len(servers))
 
 	addressProvider := g.addressProvider
-	if addressProvider == nil {
-		addressProvider = raft.NewAddressProvider(g.database)
-	}
-
 	for i, server := range servers {
 		address, err := addressProvider.ServerAddr(server.ID)
 		if err != nil {
