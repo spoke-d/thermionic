@@ -30,7 +30,7 @@ bin/therm:
 
 .PHONY: check
 check: clean build install
-	# go test -v -tags "$(TAG_SQLITE3) integration" ./...
+	go test -v -tags "$(TAG_SQLITE3) integration" ./...
 	cd test && ./main.sh
 
 .PHONY: update
