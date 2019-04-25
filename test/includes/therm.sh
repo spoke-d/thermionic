@@ -1,7 +1,7 @@
 spawn_therm() {
     set +x
 
-    local THERM_DIR testdir thermdir
+    local THERM_DIR testdir thermdir discoverable
 
     testdir=${1}
     shift
@@ -12,12 +12,19 @@ spawn_therm() {
     port=${1}
     shift
 
+    discoverable=${1}
+    shift
+
     networkport="${port}"
     debugport=$((port+1))
 
     echo "==> Spawning therm in ${thermdir}"
 
-    THERM_DIR="${thermdir}" therm daemon init --network-port="${networkport}" --debug-port="${debugport}" "$@" 2>&1 &
+    THERM_DIR="${thermdir}" therm daemon init \
+        --discoverable="${discoverable}" \
+        --network-port="${networkport}" \
+        --debug-port="${debugport}" \
+        "$@" 2>&1 &
     THERM_PID=$!
     echo "${THERM_PID}" > "${thermdir}/therm.pid"
     echo "${thermdir}" >> "${testdir}/daemons"
@@ -39,7 +46,7 @@ spawn_and_join_therm() {
     leader=${5}
     leaderdir=${6}
 
-    spawn_therm "${testdir}" "${thermdir}" "${port}"
+    spawn_therm "${testdir}" "${thermdir}" "${port}" "false"
     echo "==> Spawn additional cluster ${name} in ${thermdir}"
 
     (

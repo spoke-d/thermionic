@@ -1,7 +1,7 @@
 test_clustering_enable() {
     THERM_INIT_DIR=$(mktemp -d -p "${TEST_DIR}" XXX)
     chmod +x "${THERM_INIT_DIR}"
-    spawn_therm "${TEST_DIR}" "${THERM_INIT_DIR}" 8090
+    spawn_therm "${TEST_DIR}" "${THERM_INIT_DIR}" 8090 "false"
 
     (
         set -e
@@ -26,12 +26,12 @@ test_clustering_enable() {
 test_clustering_membership() {
     THERM_ONE_DIR=$(mktemp -d -p "${TEST_DIR}" XXX)
     chmod +x "${THERM_ONE_DIR}"
-    spawn_therm "${TEST_DIR}" "${THERM_ONE_DIR}" 8090
+    spawn_therm "${TEST_DIR}" "${THERM_ONE_DIR}" 8090 "false"
     echo "==> Spawn additional cluster node1 in ${THERM_ONE_DIR}"
 
     THERM_TWO_DIR=$(mktemp -d -p "${TEST_DIR}" XXX)
     chmod +x "${THERM_TWO_DIR}"
-    spawn_therm "${TEST_DIR}" "${THERM_TWO_DIR}" 9000
+    spawn_therm "${TEST_DIR}" "${THERM_TWO_DIR}" 9000 "false"
     echo "==> Spawn additional cluster node2 in ${THERM_TWO_DIR}"
 
     local leader cert
@@ -133,8 +133,8 @@ EOF
         sleep 10
 
         THERM_DIR="${THERM_TWO_DIR}" therm cluster list --address="127.0.0.1:9000" --format="json" | jq '.[] | select(.server_name == "node3") | .status' | grep -q "offline"
-        THERM_DIR="${THERM_TWO_DIR}" therm config set --address="127.0.0.1:9000" cluster.offline_threshold 30
-        THERM_DIR="${THERM_ONE_DIR}" therm info --address="127.0.0.1:8090" | grep -q 'cluster.offline_threshold: "30"'
+        THERM_DIR="${THERM_TWO_DIR}" therm config set --address="127.0.0.1:9000" cluster.offline_threshold 31
+        THERM_DIR="${THERM_ONE_DIR}" therm info --address="127.0.0.1:8090" | grep -q 'cluster.offline_threshold: "31"'
         THERM_DIR="${THERM_TWO_DIR}" therm cluster remove --address="127.0.0.1:9000" --force node3
 
         sleep 10

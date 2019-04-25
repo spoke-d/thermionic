@@ -71,7 +71,7 @@ func (f *Fixtures) Grow() *cluster.Gateway {
 		makeMembershipStateShim(targetState),
 		makeMembershipGatewayShim(target),
 	)
-	nodes, err := acceptTask.Run(name, address, 1, 1)
+	nodes, err := acceptTask.Run(name, address, 2, 1)
 	if err != nil {
 		f.t.Fatal(err)
 	}

@@ -57,7 +57,7 @@ func TestAccept_UnmetPreconditions(t *testing.T) {
 			func(f *libtesting.MembershipFixtures) {
 				f.ClusterNode("5.6.7.8:666", 2, 2)
 			},
-			fmt.Sprintf("schema version mismatch: cluster has %d", 2),
+			fmt.Sprintf("schema version mismatch: cluster has %d, expects %d", 2, 1),
 		},
 		{
 			"buzz",
@@ -67,7 +67,7 @@ func TestAccept_UnmetPreconditions(t *testing.T) {
 			func(f *libtesting.MembershipFixtures) {
 				f.ClusterNode("5.6.7.8:666", 2, 1)
 			},
-			fmt.Sprintf("api version mismatch: cluster has %d", 1),
+			fmt.Sprintf("api version mismatch: cluster has %d, expects %d", 1, 3),
 		},
 	}
 	for _, c := range cases {

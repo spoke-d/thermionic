@@ -11,10 +11,10 @@ import (
 	"github.com/go-kit/kit/log/level"
 	"github.com/pborman/uuid"
 	"github.com/pkg/errors"
-	"github.com/spoke-d/thermionic/internal/actors"
-	"github.com/spoke-d/thermionic/internal/cert"
 	"github.com/spoke-d/clui"
 	"github.com/spoke-d/clui/flagset"
+	"github.com/spoke-d/thermionic/internal/actors"
+	"github.com/spoke-d/thermionic/internal/cert"
 	"github.com/spoke-d/thermionic/internal/cluster/config"
 	"github.com/spoke-d/thermionic/internal/exec"
 	"github.com/spoke-d/thermionic/internal/fsys"
@@ -40,6 +40,7 @@ type daemonInitCmd struct {
 	flagset *flagset.FlagSet
 
 	debug          bool
+	discoverable   bool
 	format         string
 	networkAddress string
 	networkPort    int
@@ -59,6 +60,7 @@ func NewDaemonInitCmd(ui clui.UI) clui.Command {
 
 func (c *daemonInitCmd) init() {
 	c.flagset.BoolVar(&c.debug, "debug", false, "debug logging")
+	c.flagset.BoolVar(&c.discoverable, "discoverable", false, "discovery service enabled")
 	c.flagset.StringVar(&c.format, "format", "yaml", "format to output the information json|yaml|tabular")
 	c.flagset.StringVar(&c.networkAddress, "network-address", "127.0.0.1", "address to bind to")
 	c.flagset.IntVar(&c.networkPort, "network-port", 8080, "port to bind to")
@@ -264,6 +266,7 @@ func (c *daemonInitCmd) Run() clui.ExitCode {
 		daemon.WithOS(sys.DefaultOS()),
 		daemon.WithFileSystem(fileSystem),
 		daemon.WithLogger(log.WithPrefix(logger, "component", "daemon")),
+		daemon.WithDiscoverable(c.discoverable),
 	)
 
 	var cancel <-chan struct{}

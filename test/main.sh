@@ -81,7 +81,7 @@ chmod +x "${TEST_DIR}"
 THERM_DIR=$(mktemp -d -p "${TEST_DIR}" XXX)
 export THERM_DIR
 chmod +x "${THERM_DIR}"
-spawn_therm "${TEST_DIR}" "${THERM_DIR}" 8080
+spawn_therm "${TEST_DIR}" "${THERM_DIR}" 8080 "false"
 
 run_test() {
     TEST_CURRENT=${1}

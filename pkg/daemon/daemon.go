@@ -17,6 +17,7 @@ import (
 	"github.com/go-kit/kit/log"
 	"github.com/go-kit/kit/log/level"
 	"github.com/pkg/errors"
+	"github.com/spoke-d/task"
 	"github.com/spoke-d/thermionic/internal/cert"
 	"github.com/spoke-d/thermionic/internal/clock"
 	"github.com/spoke-d/thermionic/internal/cluster"
@@ -36,7 +37,6 @@ import (
 	"github.com/spoke-d/thermionic/internal/retrier"
 	"github.com/spoke-d/thermionic/internal/schedules"
 	"github.com/spoke-d/thermionic/internal/state"
-	"github.com/spoke-d/task"
 	"github.com/spoke-d/thermionic/pkg/api"
 )
 
@@ -365,6 +365,7 @@ type Daemon struct {
 	clusterConfigSchema, nodeConfigSchema config.Schema
 	version                               string
 	nonce                                 string
+	discoverable                          bool
 	apiExtensions                         []string
 	db                                    Node
 	cluster                               Cluster
@@ -435,6 +436,7 @@ func New(
 		logger:              opts.logger,
 		sleeper:             opts.sleeper,
 		raftLatency:         opts.raftLatency,
+		discoverable:        opts.discoverable,
 	}
 }
 
@@ -484,11 +486,13 @@ func (d *Daemon) Register(tasks []SchedulerTask) error {
 	d.tasks.Add(schedulesTask.Run())
 	d.schedules = schedulesTask
 
-	discoveryTask := discovery.New(
-		makeDaemonDiscoveryShim(d),
-		discovery.WithLogger(log.WithPrefix(d.logger, "component", "discovery")),
-	)
-	d.tasks.Add(discoveryTask.Run())
+	if d.discoverable {
+		discoveryTask := discovery.New(
+			makeDaemonDiscoveryShim(d),
+			discovery.WithLogger(log.WithPrefix(d.logger, "component", "discovery")),
+		)
+		d.tasks.Add(discoveryTask.Run())
+	}
 
 	for _, task := range tasks {
 		d.tasks.Add(task.Run())

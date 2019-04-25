@@ -231,7 +231,7 @@ const (
 	JoinRequest Request = iota
 
 	// LeaveRequest defines a request for a membership change
-	LeaveRequest Request = iota
+	LeaveRequest
 )
 
 func (r Request) raftStatus() raftmembership.ChangeRequestKind {

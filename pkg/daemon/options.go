@@ -10,11 +10,12 @@ import (
 type Option func(*options)
 
 type options struct {
-	os          OS
-	fileSystem  fsys.FileSystem
-	logger      log.Logger
-	sleeper     clock.Sleeper
-	raftLatency float64
+	os           OS
+	fileSystem   fsys.FileSystem
+	logger       log.Logger
+	sleeper      clock.Sleeper
+	raftLatency  float64
+	discoverable bool
 }
 
 // WithOS sets the os on the options
@@ -38,11 +39,19 @@ func WithLogger(logger log.Logger) Option {
 	}
 }
 
+// WithDiscoverable sets if the deamon is discoverable for discovery service
+func WithDiscoverable(flag bool) Option {
+	return func(options *options) {
+		options.discoverable = flag
+	}
+}
+
 // Create a options instance with default values.
 func newOptions() *options {
 	return &options{
-		logger:      log.NewNopLogger(),
-		sleeper:     clock.DefaultSleeper,
-		raftLatency: 3.0,
+		logger:       log.NewNopLogger(),
+		sleeper:      clock.DefaultSleeper,
+		raftLatency:  3.0,
+		discoverable: false,
 	}
 }
