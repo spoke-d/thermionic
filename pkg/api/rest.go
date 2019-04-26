@@ -3,6 +3,7 @@ package api
 import (
 	"context"
 	"crypto/x509"
+	"fmt"
 	"net/http"
 	"os/user"
 	"strconv"
@@ -16,6 +17,7 @@ import (
 	"github.com/go-kit/kit/log/level"
 	"github.com/gorilla/mux"
 	"github.com/pkg/errors"
+	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"github.com/spoke-d/task"
 	"github.com/spoke-d/thermionic/internal/cert"
 	clusterconfig "github.com/spoke-d/thermionic/internal/cluster/config"
@@ -445,6 +447,11 @@ func makeRestServer(
 	mux := mux.NewRouter()
 	mux.StrictSlash(false)
 
+	mux.Handle("/metrics", promhttp.Handler())
+	mux.HandleFunc("/health", func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(http.StatusOK)
+		fmt.Fprintln(w, "OK")
+	})
 	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "application/json")
 		SyncResponse(true, []string{"/1.0"}).Render(w)
