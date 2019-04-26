@@ -1,5 +1,5 @@
-hash: cd772943245410c282b6c48bba5b0214eb0d5a0edfde46a47f2d9648253f1c0f
-updated: 2019-04-12T17:51:08.028382416+01:00
+hash: ac33cc59da40bcce29bfe8798a4bba470c60796553ed2c2f7d62e8c504ee083a
+updated: 2019-04-26T18:53:24.390646484+01:00
 imports:
 - name: github.com/armon/circbuf
   version: bbbad097214e2918d8543d5201d12bfd7bca254d
@@ -7,6 +7,10 @@ imports:
   version: f036747b9d0e8590f175a5d654a2194a7d9df4b5
 - name: github.com/armon/go-radix
   version: 1a2de0c21c94309923825da3df33a4381872c795
+- name: github.com/beorn7/perks
+  version: 4c0e84591b9aa9e6dcfdf3e020114cd81f89d5f9
+  subpackages:
+  - quantile
 - name: github.com/bgentry/speakeasy
   version: 4aabc24848ce5fd31929f7d1e4ea74d3709c14cd
 - name: github.com/boltdb/bolt
@@ -97,11 +101,11 @@ imports:
 - name: github.com/hashicorp/memberlist
   version: a8f83c6403e0c718e9336784a270c09dc4613d3e
 - name: github.com/hashicorp/raft
-  version: d9517af3f8d2d25aaf55786b8fef505736940c5a
+  version: 03ab673988a6cc84590a37717ab89c13787ca061
 - name: github.com/hashicorp/raft-boltdb
   version: 6e5ba93211eaf8d9a2ad7e41ffad8c6f160f9fe3
 - name: github.com/hashicorp/serf
-  version: e516ab3e97c38fc10fb0dbde0437751823d08300
+  version: 15cfd05de3dffb3664aa37b06e91f970b825e380
   subpackages:
   - cmd/serf/command/agent
   - coordinate
@@ -117,6 +121,10 @@ imports:
   version: 97311d9f7767e3d6f422ea06661bc2c7a19e8a5d
 - name: github.com/mattn/go-sqlite3
   version: 1a378fb5bb5c0b41b45a0bd61a984072fe0fd0fb
+- name: github.com/matttproud/golang_protobuf_extensions
+  version: c12348ce28de40eed0136aa2b644d0ee0650e56c
+  subpackages:
+  - pbutil
 - name: github.com/miekg/dns
   version: 450ab7d57fb96d2a1d85cc507d30a91d00185dd4
 - name: github.com/mitchellh/cli
@@ -139,6 +147,24 @@ imports:
   - cmd
   - cmd/install
   - match
+- name: github.com/prometheus/client_golang
+  version: 94ff84a9a6ebb5e6eb9172897c221a64df3443bc
+  subpackages:
+  - prometheus
+- name: github.com/prometheus/client_model
+  version: 6f3806018612930941127f2a7c6c453ba2c527d2
+  subpackages:
+  - go
+- name: github.com/prometheus/common
+  version: 3e6a7635bac6573d43f49f97b47eb9bda195dba8
+  subpackages:
+  - expfmt
+  - internal/bitbucket.org/ww/goautoneg
+  - model
+- name: github.com/prometheus/procfs
+  version: e645f4e5aaa8506fc71d6edbc5c4ff02c04c46f2
+  subpackages:
+  - xfs
 - name: github.com/Rican7/retry
   version: 272ad122d6e5ce1be757544007cf8bcd1c9c9ab0
   subpackages:

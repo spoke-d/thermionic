@@ -17,7 +17,9 @@ import (
 // API defines a query API
 type API struct {
 	api.DefaultService
-	name       string
+
+	name string
+
 	logger     log.Logger
 	fileSystem fsys.FileSystem
 	clock      clock.Clock

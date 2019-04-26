@@ -11,6 +11,7 @@ import (
 	"github.com/go-kit/kit/log/level"
 	"github.com/pborman/uuid"
 	"github.com/pkg/errors"
+	"github.com/prometheus/client_golang/prometheus"
 	"github.com/spoke-d/clui"
 	"github.com/spoke-d/clui/flagset"
 	"github.com/spoke-d/thermionic/internal/actors"
@@ -173,6 +174,23 @@ func (c *daemonInitCmd) Run() clui.ExitCode {
 		log.WithPrefix(logger, "component", "event-broadcaster"),
 	)
 
+	// Instrumentation.
+	connectedClients := prometheus.NewGaugeVec(prometheus.GaugeOpts{
+		Namespace: "thermionic",
+		Name:      "connected_clients",
+		Help:      "Number of currently connected clients by modality.",
+	}, []string{"modality"})
+	apiDuration := prometheus.NewHistogramVec(prometheus.HistogramOpts{
+		Namespace: "thermionic",
+		Name:      "api_request_duration_seconds",
+		Help:      "API request duration in seconds.",
+		Buckets:   prometheus.DefBuckets,
+	}, []string{"method", "path", "status_code"})
+	prometheus.MustRegister(
+		connectedClients,
+		apiDuration,
+	)
+
 	// register the API services
 	apiServices := []api.Service{
 		root.NewAPI(node.ConfigSchema),
@@ -259,6 +277,10 @@ func (c *daemonInitCmd) Run() clui.ExitCode {
 		config.Schema,
 		node.ConfigSchema,
 		APIExtensions,
+		daemon.NewAPIMetrics(
+			makeDaemonHistogramVecShim(apiDuration),
+			makeDaemonGaugeVecShim(connectedClients),
+		),
 		apiServices,
 		apiInternalServices,
 		makeActorGroupShim(actorGroup),
