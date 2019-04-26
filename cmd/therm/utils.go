@@ -11,11 +11,15 @@ import (
 	"strings"
 	"text/tabwriter"
 
+	"github.com/prometheus/client_golang/prometheus"
+
 	"github.com/go-kit/kit/log"
 	"github.com/pkg/errors"
 	"github.com/spoke-d/thermionic/client"
 	"github.com/spoke-d/thermionic/internal/fsys"
 	"github.com/spoke-d/thermionic/internal/sys"
+	"github.com/spoke-d/thermionic/pkg/daemon"
+	"github.com/spoke-d/thermionic/pkg/discovery"
 	yaml "gopkg.in/yaml.v2"
 )
 
@@ -198,4 +202,60 @@ func parseDiscoveryAddr(addr string, defaultPort int) (string, int, error) {
 		return "", -1, errors.WithStack(err)
 	}
 	return host, port, nil
+}
+
+type daemonHistogramVecShim struct {
+	histogramVec *prometheus.HistogramVec
+}
+
+func makeDaemonHistogramVecShim(histogramVec *prometheus.HistogramVec) daemonHistogramVecShim {
+	return daemonHistogramVecShim{
+		histogramVec: histogramVec,
+	}
+}
+
+func (s daemonHistogramVecShim) WithLabelValues(lvs ...string) daemon.Histogram {
+	return s.histogramVec.WithLabelValues(lvs...)
+}
+
+type daemonGuageVecShim struct {
+	guageVec *prometheus.GaugeVec
+}
+
+func makeDaemonGaugeVecShim(guageVec *prometheus.GaugeVec) daemonGuageVecShim {
+	return daemonGuageVecShim{
+		guageVec: guageVec,
+	}
+}
+
+func (s daemonGuageVecShim) WithLabelValues(lvs ...string) daemon.Gauge {
+	return s.guageVec.WithLabelValues(lvs...)
+}
+
+type discoveryHistogramVecShim struct {
+	histogramVec *prometheus.HistogramVec
+}
+
+func makeDiscoveryHistogramVecShim(histogramVec *prometheus.HistogramVec) discoveryHistogramVecShim {
+	return discoveryHistogramVecShim{
+		histogramVec: histogramVec,
+	}
+}
+
+func (s discoveryHistogramVecShim) WithLabelValues(lvs ...string) discovery.Histogram {
+	return s.histogramVec.WithLabelValues(lvs...)
+}
+
+type discoveryGuageVecShim struct {
+	guageVec *prometheus.GaugeVec
+}
+
+func makeDiscoveryGaugeVecShim(guageVec *prometheus.GaugeVec) discoveryGuageVecShim {
+	return discoveryGuageVecShim{
+		guageVec: guageVec,
+	}
+}
+
+func (s discoveryGuageVecShim) WithLabelValues(lvs ...string) discovery.Gauge {
+	return s.guageVec.WithLabelValues(lvs...)
 }

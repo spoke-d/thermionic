@@ -3,7 +3,6 @@ package endpoints
 import (
 	"fmt"
 	"net"
-	"net/http"
 	"sync"
 	"time"
 
@@ -39,6 +38,12 @@ func (k kind) Description() string {
 	}
 }
 
+// Server is a point of use interface for a http.Server
+type Server interface {
+	// Server traffic from the listener.
+	Serve(net.Listener) error
+}
+
 // Endpoints are in charge of bringing up and down the HTTP endpoints for
 // serving the RESTful API.
 //
@@ -49,14 +54,14 @@ type Endpoints struct {
 	tomb      *tomb.Tomb
 	mutex     sync.RWMutex
 	listeners map[kind]net.Listener
-	servers   map[kind]*http.Server
+	servers   map[kind]Server
 	cert      *cert.Info
 	logger    log.Logger
 	sleeper   clock.Sleeper
 }
 
 // New creates Endpoints with sane defaults
-func New(restServer *http.Server, cert *cert.Info, options ...Option) *Endpoints {
+func New(restServer Server, cert *cert.Info, options ...Option) *Endpoints {
 	opts := newOptions()
 	opts.restServer = restServer
 	opts.cert = cert
@@ -70,7 +75,7 @@ func New(restServer *http.Server, cert *cert.Info, options ...Option) *Endpoints
 			network: networkCreateListener(opts.networkAddress, cert, opts.logger),
 			pprof:   pprofCreateListener(opts.debugAddress, opts.logger),
 		},
-		servers: map[kind]*http.Server{
+		servers: map[kind]Server{
 			network: opts.restServer,
 			pprof:   pprofCreateServer(),
 		},
@@ -86,8 +91,12 @@ func (e *Endpoints) Up() error {
 	defer e.mutex.Unlock()
 
 	level.Info(e.logger).Log("msg", "REST API daemon")
-	e.serveHTTP(network)
-	e.serveHTTP(pprof)
+	if err := e.serveHTTP(network); err != nil {
+		return errors.WithStack(err)
+	}
+	if err := e.serveHTTP(pprof); err != nil {
+		return errors.WithStack(err)
+	}
 
 	return nil
 }
@@ -196,11 +205,11 @@ func (e *Endpoints) PprofUpdateAddress(address string) error {
 }
 
 // Start an HTTP server for the endpoint associated with the given code.
-func (e *Endpoints) serveHTTP(kind kind) {
+func (e *Endpoints) serveHTTP(kind kind) error {
 	listener := e.listeners[kind]
 
 	if listener == nil {
-		return
+		return nil
 	}
 
 	message := fmt.Sprintf(" - binding %s", kind.Description())
@@ -208,10 +217,12 @@ func (e *Endpoints) serveHTTP(kind kind) {
 
 	server := e.servers[kind]
 
-	e.tomb.Go(func() error {
-		server.Serve(listener)
-		return nil
-	})
+	if err := e.tomb.Go(func() error {
+		return server.Serve(listener)
+	}); err != nil {
+		return errors.WithStack(err)
+	}
+	return nil
 }
 
 // Stop the HTTP server of the endpoint associated with the given code. The
@@ -273,7 +284,5 @@ func (e *Endpoints) newListener(k kind, oldAddress, address string) error {
 	}
 
 	e.listeners[k] = networkTLSListener(listener, e.cert, e.logger)
-	e.serveHTTP(k)
-
-	return nil
+	return e.serveHTTP(k)
 }

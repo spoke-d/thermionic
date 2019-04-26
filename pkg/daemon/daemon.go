@@ -366,6 +366,7 @@ type Daemon struct {
 	version                               string
 	nonce                                 string
 	discoverable                          bool
+	apiMetrics                            APIMetrics
 	apiExtensions                         []string
 	db                                    Node
 	cluster                               Cluster
@@ -405,6 +406,7 @@ func New(
 	networkAddress, debugAddress string,
 	clusterConfigSchema, nodeConfigSchema config.Schema,
 	apiExtensions []string,
+	apiMetrics APIMetrics,
 	apiServices, apiInternalServices []api.Service,
 	actorGroup ActorGroup,
 	eventBroadcaster EventBroadcaster,
@@ -420,6 +422,7 @@ func New(
 		version:             version,
 		networkAddress:      networkAddress,
 		debugAddress:        debugAddress,
+		apiMetrics:          apiMetrics,
 		apiExtensions:       apiExtensions,
 		clusterConfigSchema: clusterConfigSchema,
 		nodeConfigSchema:    nodeConfigSchema,
@@ -549,9 +552,6 @@ func (d *Daemon) Stop() error {
 	if d.gateway != nil {
 		trackError(d.gateway.Shutdown())
 	}
-	if d.endpoints != nil {
-		trackError(d.endpoints.Down())
-	}
 
 	var err error
 	if n := len(errs); n > 0 {
@@ -657,6 +657,11 @@ func (d *Daemon) Version() string {
 // Endpoints returns the underlying endpoints that the daemon controls.
 func (d *Daemon) Endpoints() Endpoints {
 	return d.endpoints
+}
+
+// APIMetrics returns the metrics for recording metric changes
+func (d *Daemon) APIMetrics() APIMetrics {
+	return d.apiMetrics
 }
 
 // APIExtensions returns the extensions available to the current daemon

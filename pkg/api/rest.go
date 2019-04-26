@@ -5,6 +5,7 @@ import (
 	"crypto/x509"
 	"net/http"
 	"os/user"
+	"strconv"
 	"strings"
 	"sync"
 	"time"
@@ -15,6 +16,7 @@ import (
 	"github.com/go-kit/kit/log/level"
 	"github.com/gorilla/mux"
 	"github.com/pkg/errors"
+	"github.com/spoke-d/task"
 	"github.com/spoke-d/thermionic/internal/cert"
 	clusterconfig "github.com/spoke-d/thermionic/internal/cluster/config"
 	"github.com/spoke-d/thermionic/internal/config"
@@ -23,7 +25,6 @@ import (
 	"github.com/spoke-d/thermionic/internal/db/database"
 	"github.com/spoke-d/thermionic/internal/operations"
 	"github.com/spoke-d/thermionic/internal/schedules"
-	"github.com/spoke-d/task"
 )
 
 // Interval represents the number of seconds to wait between to heartbeat
@@ -260,6 +261,51 @@ type Facade interface {
 
 	// ClusterCerts returns the associated client certificates
 	ClusterCerts() []x509.Certificate
+
+	// APIMetrics returns a series of metrics, useful for diagnostics.
+	APIMetrics() Metrics
+}
+
+// Gauge is a Metric that represents a single numerical value that can
+// arbitrarily go up and down.
+type Gauge interface {
+	// Inc increments the Gauge by 1. Use Add to increment it by arbitrary
+	// values.
+	Inc()
+}
+
+// GaugeVec is a Collector that bundles a set of Gauges that all share the same
+// Desc, but have different values for their variable labels.
+type GaugeVec interface {
+	// WithLabelValues works as GetMetricWithLabelValues, but panics where
+	// GetMetricWithLabelValues would have returned an error. By not returning an
+	// error, WithLabelValues allows shortcuts like
+	//     myVec.WithLabelValues("404", "GET").Add(42)
+	WithLabelValues(lvs ...string) Gauge
+}
+
+// A Histogram counts individual observations from an event or sample stream in
+// configurable buckets. Similar to a summary, it also provides a sum of
+// observations and an observation count.
+type Histogram interface {
+	// Observe adds a single observation to the histogram.
+	Observe(float64)
+}
+
+// HistogramVec is a Collector that bundles a set of Histograms that all share the
+// same Desc, but have different values for their variable labels.
+type HistogramVec interface {
+	// WithLabelValues works as GetMetricWithLabelValues, but panics where
+	// GetMetricWithLabelValues would have returned an error. By not returning an
+	// error, WithLabelValues allows shortcuts like
+	//     myVec.WithLabelValues("404", "GET").Observe(42.21)
+	WithLabelValues(lvs ...string) Histogram
+}
+
+// Metrics is a collection metrics to use from the daemon
+type Metrics interface {
+	APIDuration() HistogramVec
+	ConnectedClients() GaugeVec
 }
 
 // Daemon can respond to requests from a shared client.
@@ -444,6 +490,18 @@ func (s *restServer) Init(config *clusterconfig.ReadOnlyConfig) {
 }
 
 func (s *restServer) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	iw := &interceptingWriter{code: http.StatusOK, ResponseWriter: w}
+	w = iw
+
+	metrics := s.facade.APIMetrics()
+	defer func(begin time.Time) {
+		metrics.APIDuration().WithLabelValues(
+			r.Method,
+			r.URL.Path,
+			strconv.Itoa(iw.code),
+		).Observe(time.Since(begin).Seconds())
+	}(time.Now())
+
 	// Set CORS headers, unless this is an internal or gRPC request.
 	if !strings.HasPrefix(r.URL.Path, "/internal") && !strings.HasPrefix(r.URL.Path, "/protocol.SQL") {
 		// Block until we're setup
@@ -575,4 +633,14 @@ func (s *restServerScheduler) readConfig() (*clusterconfig.ReadOnlyConfig, error
 	}
 
 	return config, nil
+}
+
+type interceptingWriter struct {
+	code int
+	http.ResponseWriter
+}
+
+func (iw *interceptingWriter) WriteHeader(code int) {
+	iw.code = code
+	iw.ResponseWriter.WriteHeader(code)
 }

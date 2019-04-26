@@ -10,6 +10,7 @@ import (
 	"github.com/go-kit/kit/log/level"
 	"github.com/pborman/uuid"
 	"github.com/pkg/errors"
+	"github.com/spoke-d/task"
 	"github.com/spoke-d/thermionic/client"
 	"github.com/spoke-d/thermionic/internal/cert"
 	"github.com/spoke-d/thermionic/internal/clock"
@@ -19,7 +20,6 @@ import (
 	"github.com/spoke-d/thermionic/internal/endpoints"
 	"github.com/spoke-d/thermionic/internal/fsys"
 	"github.com/spoke-d/thermionic/internal/retrier"
-	"github.com/spoke-d/task"
 	"github.com/spoke-d/thermionic/pkg/api"
 )
 
@@ -142,6 +142,7 @@ type Service struct {
 	certInfo                   *cert.Info
 	clientCerts, clusterCerts  []x509.Certificate
 	config                     *clusterconfig.ReadOnlyConfig
+	apiMetrics                 APIMetrics
 	version                    string
 	peer                       Peer
 	os                         OS
@@ -177,6 +178,7 @@ func NewService(
 	config *clusterconfig.ReadOnlyConfig,
 	version string,
 	networkAddress, debugAddress string,
+	apiMetrics APIMetrics,
 	apiServices, apiInternalServices []api.Service,
 	daemonAddress, daemonNonce string,
 	options ...Option,
@@ -200,6 +202,7 @@ func NewService(
 		shutdownChan:        make(chan struct{}),
 		apiServices:         apiServices,
 		apiInternalServices: apiInternalServices,
+		apiMetrics:          apiMetrics,
 		daemonAddress:       daemonAddress,
 		daemonNonce:         daemonNonce,
 		os:                  opts.os,
@@ -274,6 +277,11 @@ func (s *Service) Version() string {
 // Endpoints returns the underlying endpoints that the daemon controls.
 func (s *Service) Endpoints() Endpoints {
 	return s.endpoints
+}
+
+// APIMetrics returns the metrics for recording metric changes
+func (s *Service) APIMetrics() APIMetrics {
+	return s.apiMetrics
 }
 
 // Stop stops the shared service.

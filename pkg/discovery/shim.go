@@ -111,6 +111,56 @@ func (s discoveryShim) Endpoints() api.Endpoints {
 	return s.service.Endpoints()
 }
 
+func (s discoveryShim) APIMetrics() api.Metrics {
+	return makeAPIMetricsShim(s.service.APIMetrics())
+}
+
 func (s discoveryShim) UnsafeShutdown() {
 	s.service.UnsafeShutdown()
+}
+
+type apiMetricsShim struct {
+	apiMetrics APIMetrics
+}
+
+func makeAPIMetricsShim(apiMetrics APIMetrics) apiMetricsShim {
+	return apiMetricsShim{
+		apiMetrics: apiMetrics,
+	}
+}
+
+func (s apiMetricsShim) APIDuration() api.HistogramVec {
+	return makeHistogramVecShim(s.apiMetrics.APIDuration())
+}
+
+func (s apiMetricsShim) ConnectedClients() api.GaugeVec {
+	return makeGaugeVecShim(s.apiMetrics.ConnectedClients())
+}
+
+type histogramVecShim struct {
+	histogramVec HistogramVec
+}
+
+func makeHistogramVecShim(histogramVec HistogramVec) histogramVecShim {
+	return histogramVecShim{
+		histogramVec: histogramVec,
+	}
+}
+
+func (s histogramVecShim) WithLabelValues(lvs ...string) api.Histogram {
+	return s.histogramVec.WithLabelValues(lvs...)
+}
+
+type guageVecShim struct {
+	guageVec GaugeVec
+}
+
+func makeGaugeVecShim(guageVec GaugeVec) guageVecShim {
+	return guageVecShim{
+		guageVec: guageVec,
+	}
+}
+
+func (s guageVecShim) WithLabelValues(lvs ...string) api.Gauge {
+	return s.guageVec.WithLabelValues(lvs...)
 }

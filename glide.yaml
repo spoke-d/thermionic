@@ -54,3 +54,4 @@ import:
   - package: github.com/mitchellh/mapstructure
   - package: github.com/pmezard/go-difflib/difflib
   - package: github.com/sean-/seed
+  - package: github.com/prometheus/client_golang/prometheus

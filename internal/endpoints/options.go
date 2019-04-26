@@ -1,8 +1,6 @@
 package endpoints
 
 import (
-	"net/http"
-
 	"github.com/go-kit/kit/log"
 	"github.com/spoke-d/thermionic/internal/cert"
 	"github.com/spoke-d/thermionic/internal/clock"
@@ -13,7 +11,7 @@ type Option func(*options)
 
 type options struct {
 	// HTTP server handling requests for the RESTful API.
-	restServer *http.Server
+	restServer Server
 
 	// The TLS keypair and optional CA to use for the network endpoint. It
 	// must be always provided, since the public key will be included in
@@ -40,7 +38,7 @@ type options struct {
 }
 
 // WithRestServer sets the restServer on the option
-func WithRestServer(restServer *http.Server) Option {
+func WithRestServer(restServer Server) Option {
 	return func(options *options) {
 		options.restServer = restServer
 	}
