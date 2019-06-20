@@ -13,13 +13,13 @@ jobs:
 
       - run: sudo apt update
       - run: sudo apt install curl gettext jq libsqlite3-dev sqlite3 autoconf libacl1-dev libcap-dev libtool libuv1-dev make pkg-config tcl xz-utils
-      
+
       - restore_cache:
           keys:
-            - deps-{{ arch }}-{{ checksum "glide.lock" }}
+            - deps-{{ arch }}-{{ checksum "Gopkg.lock" }}
       - run: make setup
       - save_cache:
-          key: deps-{{ arch }}-{{ checksum "glide.lock" }}
+          key: deps-{{ arch }}-{{ checksum "Gopkg.lock" }}
           paths:
             - vendor
 
