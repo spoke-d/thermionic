@@ -71,6 +71,35 @@ type CertConfig interface {
 	Read(*cert.Info) (*tls.Config, error)
 }
 
+// APIHeartbeatMember contains specific cluster node info.
+type APIHeartbeatMember struct {
+	ID            int64     // ID field value in nodes table.
+	Address       string    // Host and Port of node.
+	RaftID        int64     // ID field value in raft_nodes table, zero if non-raft node.
+	Raft          bool      // Deprecated, use non-zero RaftID instead to indicate raft node.
+	LastHeartbeat time.Time // Last time we received a successful response from node.
+	Online        bool      // Calculated from offline threshold and LastHeatbeat time.
+	updated       bool      // Has node been updated during this heartbeat run. Not sent to nodes.
+}
+
+// APIHeartbeatVersion contains max versions for all nodes in cluster.
+type APIHeartbeatVersion struct {
+	Schema        int
+	APIExtensions int
+}
+
+// APIHeartbeat contains data sent to nodes in heartbeat.
+type APIHeartbeat struct {
+	Members map[int64]APIHeartbeatMember
+	Version APIHeartbeatVersion
+	Time    time.Time
+
+	// Indicates if heartbeat contains a fresh set of node states.
+	// This can be used to indicate to the receiving node that the state is fresh enough to
+	// trigger node refresh activies (such as forkdns).
+	FullStateList bool
+}
+
 // Interval represents the number of seconds to wait between to heartbeat
 // rounds.
 const Interval = 4
