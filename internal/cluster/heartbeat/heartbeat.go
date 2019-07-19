@@ -14,7 +14,6 @@ import (
 	"github.com/go-kit/kit/log/level"
 	"github.com/hashicorp/raft"
 	"github.com/pkg/errors"
-	"github.com/snapcore/snapd/logger"
 	"github.com/spoke-d/task"
 	"github.com/spoke-d/thermionic/internal/cert"
 	"github.com/spoke-d/thermionic/internal/clock"
@@ -441,7 +440,7 @@ func (h *Heartbeat) run(ctx context.Context, initialHeartbeat bool) {
 
 	// If the context has been cancelled, return immediately.
 	if ctx.Err() != nil {
-		logger.Debugf("Aborting heartbeat round")
+		level.Debug(h.logger).Log("msg", "Aborting heartbeat round")
 		return
 	}
 
