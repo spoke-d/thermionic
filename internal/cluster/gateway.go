@@ -30,9 +30,6 @@ import (
 	"github.com/spoke-d/thermionic/internal/retrier"
 )
 
-// Current dqlite protocol version.
-const dqliteVersion = 1
-
 // Node mediates access to the data stored in the node-local SQLite database.
 type Node interface {
 	database.DBAccessor
@@ -842,9 +839,4 @@ func (s *ServerStore) Set(ctx context.Context, servers []cluster.ServerInfo) err
 		return s.inMemory.Set(ctx, servers)
 	}
 	return s.onDisk.Set(ctx, servers)
-}
-
-// Set the dqlite version header.
-func setDqliteVersionHeader(request *http.Request) {
-	request.Header.Set("X-Dqlite-Version", fmt.Sprintf("%d", dqliteVersion))
 }
